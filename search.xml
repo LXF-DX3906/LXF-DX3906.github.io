@@ -3,9 +3,9 @@
   <entry>
     <title>利用Hexo+Next搭建个人博客（三）--优化(各种tips、黑科技，不断更新)</title>
     <url>/2019/10/15/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89-%E4%BC%98%E5%8C%96-%E5%90%84%E7%A7%8Dtips%E3%80%81%E9%BB%91%E7%A7%91%E6%8A%80%EF%BC%8C%E4%B8%8D%E6%96%AD%E6%9B%B4%E6%96%B0/</url>
-    <content><![CDATA[<h1 id="利用Hexo-Next搭建个人博客（三）——优化-各种tips、黑科技，不断更新"><a href="#利用Hexo-Next搭建个人博客（三）——优化-各种tips、黑科技，不断更新" class="headerlink" title="利用Hexo+Next搭建个人博客（三）——优化(各种tips、黑科技，不断更新)"></a>利用Hexo+Next搭建个人博客（三）——优化(各种tips、黑科技，不断更新)</h1><h2 id="1-界面优化"><a href="#1-界面优化" class="headerlink" title="1.界面优化"></a>1.界面优化</h2><h3 id="1-1侧栏设置"><a href="#1-1侧栏设置" class="headerlink" title="1.1侧栏设置"></a>1.1侧栏设置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">侧栏设置包括：侧栏位置、侧栏显示与否、文章间距等等</span><br></pre></td></tr></table></figure><p>打开 <strong>主题配置文件</strong> 找到<code>sidebar</code>字段</p><a id="more"></a>
+    <content><![CDATA[<h2 id="1-界面优化"><a href="#1-界面优化" class="headerlink" title="1.界面优化"></a>1.界面优化</h2><h3 id="1-1侧栏设置"><a href="#1-1侧栏设置" class="headerlink" title="1.1侧栏设置"></a>1.1侧栏设置</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">侧栏设置包括：侧栏位置、侧栏显示与否、文章间距等等</span><br></pre></td></tr></table></figure><a id="more"></a>
 
-
+<p>打开 <strong>主题配置文件</strong> 找到<code>sidebar</code>字段</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sidebar:</span><br><span class="line"># Sidebar Position - 侧栏位置</span><br><span class="line">  position: left        #靠左放置</span><br><span class="line">  #position: right      #靠右放置</span><br><span class="line">  </span><br><span class="line"># 手动定义侧边栏宽度。如果注释，将默认为:</span><br><span class="line">  # Muse | Mist: 320</span><br><span class="line">  # Pisces | Gemini: 240</span><br><span class="line">  #width: 300</span><br><span class="line"></span><br><span class="line"># Sidebar Display - 侧栏显示时机（只对Muse | Mist两种风格有效）</span><br><span class="line">  display: post        #默认行为，在文章页面（拥有目录列表）时显示</span><br><span class="line">  #display: always       #在所有页面中都显示</span><br><span class="line">  #display: hide        #在所有页面中都隐藏（可以手动展开）</span><br><span class="line">  #display: remove      #完全移除</span><br><span class="line"></span><br><span class="line">  offset: 12            #文章间距（只对Pisces | Gemini两种风格有效）</span><br><span class="line">  </span><br><span class="line">  onmobile: false       #在窄视图上启用侧边栏（只对Muse | Mist两种风格有效）</span><br></pre></td></tr></table></figure>
 
 <h3 id="1-2头像设置"><a href="#1-2头像设置" class="headerlink" title="1.2头像设置"></a>1.2头像设置</h3><p>打开 <strong>主题配置文件</strong> 找到<code>Sidebar Avatar</code>字段</p>
@@ -139,9 +139,9 @@
   <entry>
     <title>利用Hexo+Next搭建个人博客（二）--使用next主题</title>
     <url>/2019/10/15/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89-%E4%BD%BF%E7%94%A8next%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="0-选择主题"><a href="#0-选择主题" class="headerlink" title="0.选择主题"></a>0.选择主题</h1><p>Hexo有很多主题可供选择，想要了解详细内容可以看一下知乎上的这个问题<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="noopener">有哪些好看的Hexo主题</a></p><p>最终我选择了next。</p><h2 id="1-下载next主题"><a href="#1-下载next主题" class="headerlink" title="1.下载next主题"></a>1.下载next主题</h2><p>访问<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">next的github地址</a>，Clone or Download，将next的压缩包下载下来。</p><a id="more"></a>
-
-
+    <content><![CDATA[<h1 id="0-选择主题"><a href="#0-选择主题" class="headerlink" title="0.选择主题"></a>0.选择主题</h1><p>Hexo有很多主题可供选择，想要了解详细内容可以看一下知乎上的这个问题<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="noopener">有哪些好看的Hexo主题</a></p><a id="more"></a>
+<p>最终我选择了next。</p>
+<h2 id="1-下载next主题"><a href="#1-下载next主题" class="headerlink" title="1.下载next主题"></a>1.下载next主题</h2><p>访问<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">next的github地址</a>，Clone or Download，将next的压缩包下载下来。</p>
 <p><img src="/.com//1571124461688.png" alt="1571124461688"></p>
 <p>将压缩包解压到博客目录MyBlog1.1下的themes文件夹中，并将其重命名为next</p>
 <h2 id="2-配置next主题"><a href="#2-配置next主题" class="headerlink" title="2.配置next主题"></a>2.配置next主题</h2><p>首先进行一下文件说明，在 <code>Hexo</code> 项目源码目录下，有两个主要的配置文件，其名称都是 <code>_config.yml</code> 。 其中，一份位于站点根目录下，主要包含 <code>Hexo</code> 本身的配置；另一份位于<code>themes</code>目录下，这份配置由主题作者提供，主要用于主题相关的配置。为了描述方便，在以下说明中，将前者称为<strong>站点配置文件</strong>， 后者称为<strong>主题配置文件</strong>。</p>
@@ -387,11 +387,11 @@
   <entry>
     <title>山川过雨晓光浮，初看江南第一州</title>
     <url>/2019/08/11/%E5%8D%97%E4%BA%AC/</url>
-    <content><![CDATA[<h3 id="南京二日"><a href="#南京二日" class="headerlink" title="南京二日"></a>南京二日</h3><p>南京很大，但南京城真的不算大，因此，南京城里的景点间都离得很近，光说不算，看图说话：</p><p><img src="http://ww1.sinaimg.cn/large/007oltUXgy1g5w5dd669cj30cy0n5jy6.jpg" alt></p><p><img src="http://ww1.sinaimg.cn/large/007oltUXgy1g5w5dpusr5j30hf0ly13s.jpg" alt></p><p><img src="http://ww1.sinaimg.cn/large/007oltUXgy1g5w5fakzxcj304u00d741.jpg" alt></p><p><em>同一比例尺下的南京与上海（图中圈出的为主要景点的分布区域，当然可能并不完全准确）</em></p><a id="more"></a>
-
-
-
-
+    <content><![CDATA[<h3 id="南京二日"><a href="#南京二日" class="headerlink" title="南京二日"></a>南京二日</h3><p>南京很大，但南京城真的不算大，因此，南京城里的景点间都离得很近，光说不算，看图说话：</p><a id="more"></a>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXgy1g5w5dd669cj30cy0n5jy6.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXgy1g5w5dpusr5j30hf0ly13s.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXgy1g5w5fakzxcj304u00d741.jpg" alt></p>
+<p><em>同一比例尺下的南京与上海（图中圈出的为主要景点的分布区域，当然可能并不完全准确）</em></p>
 <br>
 
 <br>
@@ -679,8 +679,8 @@
   <entry>
     <title>乌镇</title>
     <url>/2019/07/27/%E4%B9%8C%E9%95%87/</url>
-    <content><![CDATA[<h1 id="乌镇"><a href="#乌镇" class="headerlink" title="乌镇"></a>乌镇</h1><p>21日晚，从杭州东站坐大巴到乌镇东栅。</p><p>晚上住民宿，房东待人很热情，房东家在东栅景区内，晚上跟着房东进去，所以免了东栅的门票，第二天醒来就直接是水乡里的清晨了。</p><a id="more"></a>
-
+    <content><![CDATA[<h1 id="乌镇"><a href="#乌镇" class="headerlink" title="乌镇"></a>乌镇</h1><p>21日晚，从杭州东站坐大巴到乌镇东栅。</p><a id="more"></a>
+<p>晚上住民宿，房东待人很热情，房东家在东栅景区内，晚上跟着房东进去，所以免了东栅的门票，第二天醒来就直接是水乡里的清晨了。</p>
 <p>东栅相对可玩的较少，所以转了一圈就到西栅去了。</p>
 <p><img src="http://ww1.sinaimg.cn/large/007oltUXgy1g5egfkws54j32ao328u0y.jpg" alt></p>
 <p><em>走在东栅到西栅的路上，旁边是清一色的白墙灰瓦</em></p>
