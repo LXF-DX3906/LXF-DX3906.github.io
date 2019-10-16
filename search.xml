@@ -116,8 +116,9 @@
 
 <p>在菜单栏会生成RSS按钮</p>
 <p><img src="/LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/1571147556898.png" alt="1571147556898"></p>
-<h3 id="2-5添加评论功能"><a href="#2-5添加评论功能" class="headerlink" title="2.5添加评论功能"></a>2.5添加评论功能</h3><p>之前使用过多种评论插件，从gitalk到livere（来必力），不过最后选择了valine-admin。</p>
-<p><strong>step1：</strong>注册LeanCloud并创建一个开发版应用（免费）</p>
+<h3 id="2-5添加评论功能"><a href="#2-5添加评论功能" class="headerlink" title="2.5添加评论功能"></a>2.5添加评论功能</h3><p>之前使用过多种评论插件，从gitalk到livere（来必力），不过最后选择了<code>Valine</code>。</p>
+<p> <code>Valine</code> 诞生于2017年8月7日，最初由<code>@云淡风轻</code>大佬开发（这里附上<a href="https://ioliu.cn/2017/add-valine-comments-to-your-blog/" target="_blank" rel="noopener">原文链接</a>），后又经过许多大佬的开发和维护，是一款基于<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>的快速、简洁且高效的无后端评论系统。 </p>
+<p><strong>step1：</strong>注册<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>并创建一个开发版应用（免费）</p>
 <p><img src="/LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/1571148120730.png" alt="1571148120730"></p>
 <p><strong>step2：</strong>在LeanCloud -&gt; 存储 -&gt; 创建Class -&gt; 无限制的Class</p>
 <p><img src="/LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/1571148298873.png" alt="1571148298873"></p>
@@ -132,7 +133,7 @@
 <p>●这里的<code>valine</code>字段是用来配置评论系统的，填写<code>appid</code>和<code>appkey</code>（在LeanCloud的设置-&gt;应用Keys中），其他字段可以根据提示自行配置，下面是我的配置。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Valine.</span><br><span class="line"># You can get your appid and appkey from https://leancloud.cn</span><br><span class="line"># more info please open https://valine.js.org</span><br><span class="line">valine:</span><br><span class="line">  enable: true # 为true时启用评论 </span><br><span class="line">  appid:  # your leancloud application appid 注意空一格再输入ID和key,这里填写上面得到的APP ID</span><br><span class="line">  appkey:  # your leancloud application appkey 这里填写上面得到的APP KEY</span><br><span class="line">  notify: false # mail notifier , https://github.com/xCss/Valine/wiki 是否开启新评论邮件通知</span><br><span class="line">  verify: false # Verification code 验证码</span><br><span class="line">  placeholder: 你的言论将上交国家,请注意文明用言,否则可能被拒收或查水表 ヾﾉ≧∀≦)o 来呀！吐槽一番吧！</span><br><span class="line">  				# 评论框中预设的文字,随意填写</span><br><span class="line">  avatar: mm 	# gravatar style 头像,采用gravatar头像,到http://cn.gravatar.com/了解</span><br><span class="line">  guest_info: nick,mail,link # 访客信息,显示在评论框上面,三者可随意选择或全选</span><br><span class="line">  pageSize: 10 # pagination size 评论分页大小</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-绑定域名"><a href="#3-绑定域名" class="headerlink" title="3.绑定域名"></a>3.绑定域名</h2>]]></content>
+<h3 id="2-6相关文章推荐"><a href="#2-6相关文章推荐" class="headerlink" title="2.6相关文章推荐"></a>2.6相关文章推荐</h3><h2 id="3-绑定域名"><a href="#3-绑定域名" class="headerlink" title="3.绑定域名"></a>3.绑定域名</h2>]]></content>
       <categories>
         <category>-Hexo</category>
       </categories>

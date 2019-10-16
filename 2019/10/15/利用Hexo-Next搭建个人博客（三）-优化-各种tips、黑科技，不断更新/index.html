@@ -29,10 +29,10 @@
     scheme: 'Muse',
     version: '7.4.1',
     exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -77,7 +77,7 @@
 <meta property="og:image" content="https:/LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/1571148298873.png">
 <meta property="og:image" content="https:/LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/1571148411537.png">
 <meta property="og:image" content="https:/LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/1571148593106.png">
-<meta property="og:updated_time" content="2019-10-16T01:07:00.174Z">
+<meta property="og:updated_time" content="2019-10-16T01:35:40.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Hexo+Next搭建个人博客（三）——优化(各种tips、黑科技，不断更新)">
 <meta name="twitter:description" content="1.界面优化1.1侧栏设置1侧栏设置包括：侧栏位置、侧栏显示与否、文章间距等等">
@@ -268,6 +268,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 
     <main class="main">
@@ -323,7 +324,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-16 09:07:00" itemprop="dateModified" datetime="2019-10-16T09:07:00+08:00">2019-10-16</time>
+                <time title="修改时间：2019-10-16 09:35:40" itemprop="dateModified" datetime="2019-10-16T09:35:40+08:00">2019-10-16</time>
               </span>
             
           
@@ -378,7 +379,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>7.1k</span>
+              <span>7.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -388,7 +389,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>6 分钟</span>
+              <span>7 分钟</span>
             </span>
           
 
@@ -514,8 +515,9 @@
 
 <p>在菜单栏会生成RSS按钮</p>
 <p><img src="/LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/1571147556898.png" alt="1571147556898"></p>
-<h3 id="2-5添加评论功能"><a href="#2-5添加评论功能" class="headerlink" title="2.5添加评论功能"></a>2.5添加评论功能</h3><p>之前使用过多种评论插件，从gitalk到livere（来必力），不过最后选择了valine-admin。</p>
-<p><strong>step1：</strong>注册LeanCloud并创建一个开发版应用（免费）</p>
+<h3 id="2-5添加评论功能"><a href="#2-5添加评论功能" class="headerlink" title="2.5添加评论功能"></a>2.5添加评论功能</h3><p>之前使用过多种评论插件，从gitalk到livere（来必力），不过最后选择了<code>Valine</code>。</p>
+<p> <code>Valine</code> 诞生于2017年8月7日，最初由<code>@云淡风轻</code>大佬开发（这里附上<a href="https://ioliu.cn/2017/add-valine-comments-to-your-blog/" target="_blank" rel="noopener">原文链接</a>），后又经过许多大佬的开发和维护，是一款基于<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>的快速、简洁且高效的无后端评论系统。 </p>
+<p><strong>step1：</strong>注册<a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>并创建一个开发版应用（免费）</p>
 <p><img src="/LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/1571148120730.png" alt="1571148120730"></p>
 <p><strong>step2：</strong>在LeanCloud -&gt; 存储 -&gt; 创建Class -&gt; 无限制的Class</p>
 <p><img src="/LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/1571148298873.png" alt="1571148298873"></p>
@@ -530,12 +532,31 @@
 <p>●这里的<code>valine</code>字段是用来配置评论系统的，填写<code>appid</code>和<code>appkey</code>（在LeanCloud的设置-&gt;应用Keys中），其他字段可以根据提示自行配置，下面是我的配置。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># Valine.</span><br><span class="line"># You can get your appid and appkey from https://leancloud.cn</span><br><span class="line"># more info please open https://valine.js.org</span><br><span class="line">valine:</span><br><span class="line">  enable: true # 为true时启用评论 </span><br><span class="line">  appid:  # your leancloud application appid 注意空一格再输入ID和key,这里填写上面得到的APP ID</span><br><span class="line">  appkey:  # your leancloud application appkey 这里填写上面得到的APP KEY</span><br><span class="line">  notify: false # mail notifier , https://github.com/xCss/Valine/wiki 是否开启新评论邮件通知</span><br><span class="line">  verify: false # Verification code 验证码</span><br><span class="line">  placeholder: 你的言论将上交国家,请注意文明用言,否则可能被拒收或查水表 ヾﾉ≧∀≦)o 来呀！吐槽一番吧！</span><br><span class="line">  				# 评论框中预设的文字,随意填写</span><br><span class="line">  avatar: mm 	# gravatar style 头像,采用gravatar头像,到http://cn.gravatar.com/了解</span><br><span class="line">  guest_info: nick,mail,link # 访客信息,显示在评论框上面,三者可随意选择或全选</span><br><span class="line">  pageSize: 10 # pagination size 评论分页大小</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-绑定域名"><a href="#3-绑定域名" class="headerlink" title="3.绑定域名"></a>3.绑定域名</h2>
+<h3 id="2-6相关文章推荐"><a href="#2-6相关文章推荐" class="headerlink" title="2.6相关文章推荐"></a>2.6相关文章推荐</h3><h2 id="3-绑定域名"><a href="#3-绑定域名" class="headerlink" title="3.绑定域名"></a>3.绑定域名</h2>
     </div>
 
     
     
     
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2019\10\15\利用Hexo-Next搭建个人博客（一）-初始化demo\" rel="bookmark">利用Hexo+Next搭建个人博客（一）--初始化demo</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
+      <div class="popular-posts-title"><a href="\2019\10\15\利用Hexo-Next搭建个人博客（二）-使用next主题\" rel="bookmark">利用Hexo+Next搭建个人博客（二）--使用next主题</a></div>
+      
+    </li>
+  
+  </ul>
+
         
       
         
@@ -563,7 +584,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/Hexo-NexT/" rel="tag"># -Hexo -NexT</a>
+              <a href="/tags/Hexo-NexT/" rel="tag"><i class="fa fa-tag"></i> -Hexo -NexT</a>
             
           </div>
         
@@ -630,7 +651,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-界面优化"><span class="nav-text">1.界面优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1侧栏设置"><span class="nav-text">1.1侧栏设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2头像设置"><span class="nav-text">1.2头像设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3动态背景"><span class="nav-text">1.3动态背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#canvas-nest几何线条效果"><span class="nav-text">canvas-nest几何线条效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canvas-ribbon彩带效果"><span class="nav-text">canvas-ribbon彩带效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4在右上角或者左上角实现fork-me-on-github"><span class="nav-text">1.4在右上角或者左上角实现fork me on github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5显示摘要"><span class="nav-text">1.5显示摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动显示摘要"><span class="nav-text">自动显示摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动控制摘要"><span class="nav-text">手动控制摘要</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6设置网站缩略图标"><span class="nav-text">1.6设置网站缩略图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7去除hexo支持信息与主题版本信息"><span class="nav-text">1.7去除hexo支持信息与主题版本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8侧边栏社交信息链接"><span class="nav-text">1.8侧边栏社交信息链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-功能优化"><span class="nav-text">2.功能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1添加本地搜索功能"><span class="nav-text">2.1添加本地搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2添加站点访问计数"><span class="nav-text">2.2添加站点访问计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3添加网站字数统计"><span class="nav-text">2.3添加网站字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4添加RSS订阅"><span class="nav-text">2.4添加RSS订阅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5添加评论功能"><span class="nav-text">2.5添加评论功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-绑定域名"><span class="nav-text">3.绑定域名</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-界面优化"><span class="nav-text">1.界面优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1侧栏设置"><span class="nav-text">1.1侧栏设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2头像设置"><span class="nav-text">1.2头像设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3动态背景"><span class="nav-text">1.3动态背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#canvas-nest几何线条效果"><span class="nav-text">canvas-nest几何线条效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canvas-ribbon彩带效果"><span class="nav-text">canvas-ribbon彩带效果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4在右上角或者左上角实现fork-me-on-github"><span class="nav-text">1.4在右上角或者左上角实现fork me on github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5显示摘要"><span class="nav-text">1.5显示摘要</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动显示摘要"><span class="nav-text">自动显示摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#手动控制摘要"><span class="nav-text">手动控制摘要</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6设置网站缩略图标"><span class="nav-text">1.6设置网站缩略图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7去除hexo支持信息与主题版本信息"><span class="nav-text">1.7去除hexo支持信息与主题版本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8侧边栏社交信息链接"><span class="nav-text">1.8侧边栏社交信息链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-功能优化"><span class="nav-text">2.功能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1添加本地搜索功能"><span class="nav-text">2.1添加本地搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2添加站点访问计数"><span class="nav-text">2.2添加站点访问计数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3添加网站字数统计"><span class="nav-text">2.3添加网站字数统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4添加RSS订阅"><span class="nav-text">2.4添加RSS订阅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5添加评论功能"><span class="nav-text">2.5添加评论功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6相关文章推荐"><span class="nav-text">2.6相关文章推荐</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-绑定域名"><span class="nav-text">3.绑定域名</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -691,34 +712,28 @@
       <span class="links-of-author-item">
       
       
-        
-      
       
         
       
-        <a href="https://github.com/LXF-DX3906" title="GitHub &rarr; https://github.com/LXF-DX3906" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/LXF-DX3906" title="GitHub &rarr; https://github.com/LXF-DX3906" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
       </span>
     
       <span class="links-of-author-item">
       
       
-        
-      
       
         
       
-        <a href="mailto:xuefei_l@outlook.com" title="E-Mail &rarr; mailto:xuefei_l@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:xuefei_l@outlook.com" title="E-Mail &rarr; mailto:xuefei_l@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
       </span>
     
       <span class="links-of-author-item">
       
       
-        
-      
       
         
       
-        <a href="https://stackoverflow.com/users/11585996/xuefei-lv" title="StackOverflow &rarr; https://stackoverflow.com/users/11585996/xuefei-lv" rel="noopener" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+        <a href="https://stackoverflow.com/users/11585996/xuefei-lv" title="StackOverflow &rarr; https://stackoverflow.com/users/11585996/xuefei-lv" rel="noopener" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a>
       </span>
     
   </div>
@@ -816,7 +831,7 @@
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
 <script src="/js/schemes/muse.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script><script src="/js/bookmark.js?v=7.4.1"></script>
 
 
 
