@@ -236,7 +236,8 @@
 <p><strong>step2：</strong>打开<strong>主题配置文件</strong>，找到<code>quicklink</code>字段，将<code>enable</code>设置为<code>true</code>，其他值采用默认即可。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quicklink:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-绑定域名"><a href="#3-绑定域名" class="headerlink" title="3.绑定域名"></a>3.绑定域名</h2><p>最后附上一篇大佬的文章<a href="https://yangbingdong.com/2017/build-blog-hexo-advanced/" target="_blank" rel="noopener">基于Hexo搭建个人博客——进阶篇(从入门到入土)</a></p>
+<h2 id="3-绑定域名"><a href="#3-绑定域名" class="headerlink" title="3.绑定域名"></a>3.绑定域名</h2><p>先写到这儿吧^_^，以后有时间再更新。</p>
+<p>最后附上一篇大佬的文章<a href="https://yangbingdong.com/2017/build-blog-hexo-advanced/" target="_blank" rel="noopener">基于Hexo搭建个人博客——进阶篇(从入门到入土)</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
@@ -255,13 +256,13 @@
 
 <h2 id="1-下载next主题"><a href="#1-下载next主题" class="headerlink" title="1.下载next主题"></a>1.下载next主题</h2><p>访问<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">next的github地址</a>，Clone or Download，将next的压缩包下载下来。</p>
 <p><img src="//LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（二）-使用next主题/1571124461688.png" alt="1571124461688"></p>
-<p>将压缩包解压到博客目录MyBlog1.1下的themes文件夹中，并将其重命名为next</p>
+<p>将压缩包解压到博客目录MyBlog1.1(我的博客目录的名称)下的themes文件夹中，并将其重命名为next</p>
 <h2 id="2-配置next主题"><a href="#2-配置next主题" class="headerlink" title="2.配置next主题"></a>2.配置next主题</h2><p>首先进行一下文件说明，在 <code>Hexo</code> 项目源码目录下，有两个主要的配置文件，其名称都是 <code>_config.yml</code> 。 其中，一份位于站点根目录下，主要包含 <code>Hexo</code> 本身的配置；另一份位于<code>themes</code>目录下，这份配置由主题作者提供，主要用于主题相关的配置。为了描述方便，在以下说明中，将前者称为<strong>站点配置文件</strong>， 后者称为<strong>主题配置文件</strong>。</p>
 <h3 id="2-1修改站点配置文件"><a href="#2-1修改站点配置文件" class="headerlink" title="2.1修改站点配置文件"></a>2.1修改站点配置文件</h3><p>打开<code>MyBlog1.1/</code>目录下的<strong>站点配置文件</strong><code>_config.yml</code>：</p>
 <p>前期可以先只更改一处内容，把标题、子标题、作者等自定义一下，其他的可以以后有时间研究，例如我的</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: 槐雪</span><br><span class="line">subtitle: 愿你所有快乐无需假装，愿你此生尽兴赤诚善良</span><br><span class="line">description: 个人博客</span><br><span class="line">keywords:</span><br><span class="line">author: Monodrama</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure>
 
-<p>关于站点配置文件的详细说明，可以查看</p>
+<p>关于站点配置文件的详细说明，可以查看 <a href="http://lvxuefei.top/2019/10/17/Hexo%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E/#more" target="_blank" rel="noopener">Hexo站点配置文件说明</a></p>
 <h3 id="2-2修改主题配置文件"><a href="#2-2修改主题配置文件" class="headerlink" title="2.2修改主题配置文件"></a>2.2修改主题配置文件</h3><p>打开<code>MyBlog1.1\themes\next</code>目录下的<code>_config.yml</code><strong>主题配置文件</strong></p>
 <h4 id="选择scheme"><a href="#选择scheme" class="headerlink" title="选择scheme"></a>选择scheme</h4><p>Next提供了四种不同的外观，在<strong>主题配置文件</strong>中找到Scheme Setting，根据个人喜好选择scheme</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Scheme Settings</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
@@ -338,7 +339,7 @@
 <a id="more"></a>
 
 <h2 id="0-前提准备："><a href="#0-前提准备：" class="headerlink" title="0.前提准备："></a>0.前提准备：</h2><p>▣一个GitHub账号</p>
-<p>▣安装Git，详情可以看廖雪峰老师的git教程<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
+<p>▣安装Git，详情可以看<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰老师的git教程</a></p>
 <p>▣安装Node.js<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a></p>
 <p>▣npm包管理器</p>
 <h2 id="1-安装Hexo"><a href="#1-安装Hexo" class="headerlink" title="1.安装Hexo"></a>1.安装Hexo</h2><p>新建博客文件夹，命名为MyBlog1.1</p>
@@ -403,10 +404,8 @@
 <ul>
 <li>在浏览器输入<code>http://yourgithubname.github.io</code>，这样你就可以看到自己的在线博客了~</li>
 </ul>
-<p>参考：<a href="https://juejin.im/post/5abcd2286fb9a028d66440ba" target="_blank" rel="noopener">https://juejin.im/post/5abcd2286fb9a028d66440ba</a></p>
-<p>​            <a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249</a></p>
-<p>​            <a href="https://baoyuzhang.github.io/2017/05/12/[Hexo搭建独立博客全纪录]（三）使用Hexo搭建博客/" target="_blank" rel="noopener">https://baoyuzhang.github.io/2017/05/12/%E3%80%90Hexo%E6%90%AD%E5%BB%BA%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2%E5%85%A8%E7%BA%AA%E5%BD%95%E3%80%91%EF%BC%88%E4%B8%89%EF%BC%89%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</a></p>
-<p><a href="https://zhangslob.github.io/2017/02/28/教你免费搭建个人博客，Hexo-Github/" target="_blank" rel="noopener">https://zhangslob.github.io/2017/02/28/教你免费搭建个人博客，Hexo-Github/</a></p>
+<p>参考：<a href="https://juejin.im/post/5abcd2286fb9a028d66440ba" target="_blank" rel="noopener">手把手教你用Hexo搭建个人技术博客</a></p>
+<p>​            <a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a></p>
 ]]></content>
       <categories>
         <category>Hexo</category>
