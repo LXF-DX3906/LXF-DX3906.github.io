@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/atom.xml" title="槐雪" type="application/atom+xml">
+  <meta name="google-site-verification" content="gzchWZmg20F_sS5yKRpOn5wxPG76HT-NkrEkBRJHcuY">
+  <meta name="baidu-site-verification" content="OyEAxH7IEh">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"manual"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="0.预装环境jdk1.8（我测试的结果是java SE 13不适配kettle8.3.0.0-371，虽然可以打开kettle，但是无法创建数据库连接，把新版本java卸了重新安装旧版本也是一件挺麻烦的事）">
+<meta name="keywords" content="SQL Server,Kettle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用ETL工具Kettle（Pentaho Data Integration）将csv文件导入sql server数据库">
+<meta property="og:url" content="https://LXF-DX3906.github.io/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/index.html">
+<meta property="og:site_name" content="槐雪">
+<meta property="og:description" content="0.预装环境jdk1.8（我测试的结果是java SE 13不适配kettle8.3.0.0-371，虽然可以打开kettle，但是无法创建数据库连接，把新版本java卸了重新安装旧版本也是一件挺麻烦的事）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0x3p1lcj30o50j8abw.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xe9ty2j30o50j7mzh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xtxxtlj31hc0smjt6.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0y75mj2j310c00vgli.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yd85inj308v0a1gny.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ylmudtj30wu0oujtt.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yuxp14j30wu0ou0w0.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0z6vxgqj31c00ph75m.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ze6aitj31c00phju0.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0zp6j6cj31c00ph0v6.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r10knjf5j30n20k0ab5.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r10rkevpj30kg0anaar.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r110mrmoj30ph0juwet.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r118mhdgj31c00phtat.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r11t1jgzj31c00le0uk.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r1274esnj31hc0smq4u.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r12o7ywxj30xw0ihaax.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r130gf27j30xw0ih75i.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r1394tenj31hc0smq5a.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r13ss98gj30qo0sewfj.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r14crvjrj31hc0smwgo.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r14jhk75j30ro0set9n.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r14r1w7zj31200p1aa9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r14y10u6j31200se0t4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r154nmsnj31hc0smgou.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r15bvaj0j31c00legng.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r15o871vj31c00oq41w.jpg">
+<meta property="og:updated_time" content="2019-10-15T15:02:56.250Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用ETL工具Kettle（Pentaho Data Integration）将csv文件导入sql server数据库">
+<meta name="twitter:description" content="0.预装环境jdk1.8（我测试的结果是java SE 13不适配kettle8.3.0.0-371，虽然可以打开kettle，但是无法创建数据库连接，把新版本java卸了重新安装旧版本也是一件挺麻烦的事）">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0x3p1lcj30o50j8abw.jpg">
+  <link rel="canonical" href="https://LXF-DX3906.github.io/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>利用ETL工具Kettle（Pentaho Data Integration）将csv文件导入sql server数据库 | 槐雪</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?132763299962c64107e4e63eab294fb1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+	<a href="https://github.com/LXF-DX3906" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">槐雪</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">愿你所有快乐无需假装，愿你此生尽兴赤诚善良</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://LXF-DX3906.github.io/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Monodrama">
+      <meta itemprop="description" content="个人博客">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="槐雪">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            利用ETL工具Kettle（Pentaho Data Integration）将csv文件导入sql server数据库
+            
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-30 15:52:35" itemprop="dateCreated datePublished" datetime="2019-09-30T15:52:35+08:00">2019-09-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-15 23:02:56" itemprop="dateModified" datetime="2019-10-15T23:02:56+08:00">2019-10-15</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据仓库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据仓库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="0-预装环境"><a href="#0-预装环境" class="headerlink" title="0.预装环境"></a>0.预装环境</h1><p>jdk1.8（我测试的结果是java SE 13不适配kettle8.3.0.0-371，虽然可以打开kettle，但是无法创建数据库连接，把新版本java卸了重新安装旧版本也是一件挺麻烦的事）</p>
+<a id="more"></a>
+
+<h2 id="1-下载开源ETL工具："><a href="#1-下载开源ETL工具：" class="headerlink" title="1.下载开源ETL工具："></a>1.下载开源ETL工具：</h2><p>Pentaho Kettle：<a href="https://community.hitachivantara.com/s/article/downloads" target="_blank" rel="noopener">https://community.hitachivantara.com/s/article/downloads</a> 网页中的Data Integration</p>
+<p>下载好后为一压缩文件，将压缩文件解压到任意文件夹即可，解压后内容如下。</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0x3p1lcj30o50j8abw.jpg" alt="1569824832312.png"></p>
+<p>单击<strong>Spoon.bat</strong>，打开kettle，第一次打开大概要等几分钟。</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xe9ty2j30o50j7mzh.jpg" alt="1569825081518.png"></p>
+<p>打开后界面如下</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xtxxtlj31hc0smjt6.jpg" alt="1569825417291.png"></p>
+<p>如果点开十分钟仍没有任何反应，可以以记事本方式打开Spoon.bat并修改Spoon.bat里面的内容，<strong>将-Xms与-Xmx后的参数全改为512</strong>，之后重新打开。</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0y75mj2j310c00vgli.jpg" alt="1569825309180.png"></p>
+<h2 id="2-安装sql-server"><a href="#2-安装sql-server" class="headerlink" title="2.安装sql server"></a>2.安装sql server</h2><p>网上sql server的安装教程有很多，不再赘述。</p>
+<p>安装后有以下工具</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yd85inj308v0a1gny.jpg" alt="1569825491401.png"></p>
+<h2 id="3-使用Kettle将CSV文件内容导入sql-server数据库"><a href="#3-使用Kettle将CSV文件内容导入sql-server数据库" class="headerlink" title="3.使用Kettle将CSV文件内容导入sql server数据库"></a>3.使用Kettle将CSV文件内容导入sql server数据库</h2><h3 id="3-1配置sql-server"><a href="#3-1配置sql-server" class="headerlink" title="3.1配置sql server"></a>3.1配置sql server</h3><p>在开始正式步骤之前，需修改一下sql server的网络配置，打开<strong>SQL Server 2107 配置管理器</strong>，右键SQL Native Client11.0配置的客户端协议中的TCP/IP选项，将其设为启用状态。</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ylmudtj30wu0oujtt.jpg" alt="1569825801763.png"></p>
+<p>将SQL Server服务中的三个服务全设置为运行状态</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yuxp14j30wu0ou0w0.jpg" alt="1569825889686.png"></p>
+<p>打开<strong>Microsoft SQL Server Management Studio</strong>，采用默认方式，直接单击连接</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0z6vxgqj31c00ph75m.jpg" alt="1569826016006.png"></p>
+<p>打开左侧面板：安全性—&gt;登录名，右键用户sa，选择属性，这里可以设置用户sa的密码，直接在密码框中输入即可</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ze6aitj31c00phju0.jpg" alt="1569826170590.png"></p>
+<p>单击sa属性窗口左侧的<strong>状态</strong>项，将<strong>登录名</strong>设置为启用状态。</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0zp6j6cj31c00ph0v6.jpg" alt="1569826298788.png"></p>
+<p>至此，SQL Server前期配置完成。</p>
+<h3 id="3-2下载jTDS-SQL-Server-and-Sybase-JDBC-driver"><a href="#3-2下载jTDS-SQL-Server-and-Sybase-JDBC-driver" class="headerlink" title="3.2下载jTDS - SQL Server and Sybase JDBC driver"></a>3.2下载jTDS - SQL Server and Sybase JDBC driver</h3><p>Java连接SQL Server 2000数据库时，有两种方法：</p>
+<p>（1）通过Microsoft的JDBC驱动连接。但是该种方法目前已不适用。</p>
+<p>驱动程序名称：com.microsoft.jdbc.sqlserver.SQLServerDriver</p>
+<p>（2）通过jTDS驱动连接。下载地址：<a href="http://sourceforge.net/projects/jtds/files/jtds/" target="_blank" rel="noopener">http://sourceforge.net/projects/jtds/files/jtds/</a></p>
+<p>驱动程序名称：net.sourceforge.jtds.jdbc.Driver</p>
+<p>下载jTDS - SQL Server and Sybase JDBC driver，将压缩文件中的jtds-1.3.1.jar包放入kettle的lib文件夹下</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r10knjf5j30n20k0ab5.jpg" alt="1569829056661.png"></p>
+<p>kettle配置完成</p>
+<h3 id="3-3将csv文件导入sql-server数据库"><a href="#3-3将csv文件导入sql-server数据库" class="headerlink" title="3.3将csv文件导入sql server数据库"></a>3.3将csv文件导入sql server数据库</h3><p>新建test.csv文件，输入测试内容</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r10rkevpj30kg0anaar.jpg" alt="1569826865642.png"></p>
+<p>打开<strong>Microsoft SQL Server Management Studio</strong>，在左侧栏右键数据库-&gt;新建数据库，输入数据库名称test</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r110mrmoj30ph0juwet.jpg" alt="1569827260933.png"></p>
+<p>打开左侧面板test-&gt;表，右键表-&gt;新建-&gt;表，命名为csv_to_db，插入列ID，NAME，RELEASE_TIME，点击保存</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r118mhdgj31c00phtat.jpg" alt="1569827316253.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r11t1jgzj31c00le0uk.jpg" alt="1569829543759.png"></p>
+<p>打开kettle，文件-&gt;新建-&gt;转换，新建转换</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r1274esnj31hc0smq4u.jpg" alt="1569827001843.png"></p>
+<p>在主对象树中，右键DB连接-&gt;新建数据库连接</p>
+<p>参数如下：</p>
+<p>主机名称：localhost或127.0.0.1均可</p>
+<p>数据库名称：将要连接的数据库名称，这里为test</p>
+<p>实例名称：空</p>
+<p>端口号：默认为1433</p>
+<p>用户名：我们在前面设置为启用状态的登录名sa</p>
+<p>密码：在前面为sa设置的密码</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r12o7ywxj30xw0ihaax.jpg" alt="1569827700107.png"></p>
+<p>点击测试，如下即为连接成功</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r130gf27j30xw0ih75i.jpg" alt="1569827858731.png"></p>
+<p>单击kettle左侧栏核心对象，在输入栏下将csv文件拖入工作区</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r1394tenj31hc0smq5a.jpg" alt="1569827998760.png"></p>
+<p>双击csv文件输入图标，选择数据源，点击获取字段，确认，之后确定</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r13ss98gj30qo0sewfj.jpg" alt="1569828077122.png"></p>
+<p>在输出栏将表输出拖入工作区，按住shift利用鼠标从csv文件输入拖到表输出，点击主输出步骤</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14crvjrj31hc0smwgo.jpg" alt="1569828130523.png"></p>
+<p>双击表输出，选择数据库连接test，浏览目标表，选择上面新建的csv_to_db，勾选指定数据库字段，点击获取字段</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14jhk75j30ro0set9n.jpg" alt="1569828267096.png"></p>
+<p>点击输入字段映射，此时会报出提示，继续点击确定，选择csv中要映射的数据库表字段，单击ADD</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14r1w7zj31200p1aa9.jpg" alt="1569828365147.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14y10u6j31200se0t4.jpg" alt="1569828590146.png"></p>
+<p>确定后，点击工作区上侧的运行，转换成功</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r154nmsnj31hc0smgou.jpg" alt="1569828699761.png"></p>
+<p>转换成功，可在<strong>Microsoft SQL Server Management Studio</strong>中通过sql语句查询查看结果（没找到像oracle数据库中那样可以直接查看表内容的方法，只能用sql语句了）。</p>
+<p>右键test-&gt;新建查询</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r15bvaj0j31c00legng.jpg" alt="1569829169151.png"></p>
+<p>输入查询语句，结果如下</p>
+<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r15o871vj31c00oq41w.jpg" alt="1569829711152.png"></p>
+
+    </div>
+	
+	<div>    
+	
+    	<div>    
+	        
+		<div style="text-align:center;color: #ccc;font-size:14px;">------------------------ The End ------------------------</div>    
+	
+</div>    
+     
+	</div>
+    
+    
+    
+      
+
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Monodrama
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://LXF-DX3906.github.io/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/" title="利用ETL工具Kettle（Pentaho Data Integration）将csv文件导入sql server数据库">https://LXF-DX3906.github.io/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/SQL-Server/" rel="tag"><i class="fa fa-tag"></i> SQL Server</a>
+            
+              <a href="/tags/Kettle/" rel="tag"><i class="fa fa-tag"></i> Kettle</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/南京/" rel="next" title="山川过雨晓光浮，初看江南第一州">
+                  <i class="fa fa-chevron-left"></i> 山川过雨晓光浮，初看江南第一州
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/利用Hexo-Next搭建个人博客（一）-初始化demo/" rel="prev" title="利用Hexo+Next搭建个人博客（一）--初始化demo">
+                  利用Hexo+Next搭建个人博客（一）--初始化demo <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-预装环境"><span class="nav-text">0.预装环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-下载开源ETL工具："><span class="nav-text">1.下载开源ETL工具：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-安装sql-server"><span class="nav-text">2.安装sql server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用Kettle将CSV文件内容导入sql-server数据库"><span class="nav-text">3.使用Kettle将CSV文件内容导入sql server数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1配置sql-server"><span class="nav-text">3.1配置sql server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2下载jTDS-SQL-Server-and-Sybase-JDBC-driver"><span class="nav-text">3.2下载jTDS - SQL Server and Sybase JDBC driver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3将csv文件导入sql-server数据库"><span class="nav-text">3.3将csv文件导入sql server数据库</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/header.jpg"
+      alt="Monodrama">
+  <p class="site-author-name" itemprop="name">Monodrama</p>
+  <div class="site-description" itemprop="description">个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://github.com/LXF-DX3906" title="GitHub &rarr; https://github.com/LXF-DX3906" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="mailto:xuefei_l@outlook.com" title="E-Mail &rarr; mailto:xuefei_l@outlook.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://stackoverflow.com/users/11585996/xuefei-lv" title="StackOverflow &rarr; https://stackoverflow.com/users/11585996/xuefei-lv" rel="noopener" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Monodrama</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">29k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">26 分钟</span>
+</div>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/20/2019 12:49:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <!--<span class="post-meta-item-icon">-->
+        <!--<i class="fa fa-user"></i>-->
+      <!--</span>-->
+	  我的第
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+	  位朋友
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <!--<span class="post-meta-item-icon">-->
+        <!--<i class="fa fa-eye"></i>-->
+      <!--</span>-->
+	  历经
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+	  次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='120,120,120' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script><script src="/js/bookmark.js?v=7.4.1"></script>
+
+  <script defer src="/lib/three/three.min.js"></script>
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'RtatGTqo4DBiApiKhxihzX6t-gzGzoHsz',
+    appKey: 'Sq97pmC4Wr9gMgWDV3wk7BjT',
+    placeholder: "你的言论将上交国家,请注意文明用言,否则可能被拒收或查水表 ヾﾉ≧∀≦)o 来呀！吐槽一番吧！",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":135,"height":375},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body>
+</html>
