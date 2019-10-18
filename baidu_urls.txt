@@ -1,0 +1,9 @@
+https://LXF-DX3906.github.io/2019/10/17/Hexo站点配置文件说明/
+https://LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/
+https://LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（二）-使用next主题/
+https://LXF-DX3906.github.io/2019/10/15/利用Hexo-Next搭建个人博客（一）-初始化demo/
+https://LXF-DX3906.github.io/2019/09/30/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/
+https://LXF-DX3906.github.io/2019/08/11/南京/
+https://LXF-DX3906.github.io/2019/07/29/逃避虽可耻但有用/
+https://LXF-DX3906.github.io/2019/07/27/乌镇/
+https://LXF-DX3906.github.io/2019/07/27/基于PyQT、PocketSphinx的python语音识别小程序/
