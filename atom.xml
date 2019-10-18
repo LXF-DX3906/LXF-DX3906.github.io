@@ -5,9 +5,9 @@
   <subtitle>愿你所有快乐无需假装，愿你此生尽兴赤诚善良</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://LXF-DX3906.github.io/"/>
+  <link href="http://LXF-DX3906.github.io/"/>
   <updated>2019-10-17T05:39:12.368Z</updated>
-  <id>https://LXF-DX3906.github.io/</id>
+  <id>http://LXF-DX3906.github.io/</id>
   
   <author>
     <name>Monodrama</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hexo站点配置文件说明</title>
-    <link href="https://LXF-DX3906.github.io/Hexo%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E/"/>
-    <id>https://LXF-DX3906.github.io/Hexo站点配置文件说明/</id>
+    <link href="http://LXF-DX3906.github.io/Hexo%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E/"/>
+    <id>http://LXF-DX3906.github.io/Hexo站点配置文件说明/</id>
     <published>2019-10-17T05:35:31.000Z</published>
     <updated>2019-10-17T05:39:12.368Z</updated>
     
@@ -32,19 +32,19 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://LXF-DX3906.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://LXF-DX3906.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://LXF-DX3906.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://LXF-DX3906.github.io/tags/Hexo/"/>
     
-      <category term="NexT" scheme="https://LXF-DX3906.github.io/tags/NexT/"/>
+      <category term="NexT" scheme="http://LXF-DX3906.github.io/tags/NexT/"/>
     
   </entry>
   
   <entry>
     <title>利用Hexo+Next搭建个人博客（三）——优化(各种tips、黑科技，不断更新)</title>
-    <link href="https://LXF-DX3906.github.io/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89-%E4%BC%98%E5%8C%96-%E5%90%84%E7%A7%8Dtips%E3%80%81%E9%BB%91%E7%A7%91%E6%8A%80%EF%BC%8C%E4%B8%8D%E6%96%AD%E6%9B%B4%E6%96%B0/"/>
-    <id>https://LXF-DX3906.github.io/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/</id>
+    <link href="http://LXF-DX3906.github.io/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89-%E4%BC%98%E5%8C%96-%E5%90%84%E7%A7%8Dtips%E3%80%81%E9%BB%91%E7%A7%91%E6%8A%80%EF%BC%8C%E4%B8%8D%E6%96%AD%E6%9B%B4%E6%96%B0/"/>
+    <id>http://LXF-DX3906.github.io/利用Hexo-Next搭建个人博客（三）-优化-各种tips、黑科技，不断更新/</id>
     <published>2019-10-15T15:01:05.000Z</published>
     <updated>2019-10-17T15:20:08.628Z</updated>
     
@@ -57,19 +57,19 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://LXF-DX3906.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://LXF-DX3906.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://LXF-DX3906.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://LXF-DX3906.github.io/tags/Hexo/"/>
     
-      <category term="NexT" scheme="https://LXF-DX3906.github.io/tags/NexT/"/>
+      <category term="NexT" scheme="http://LXF-DX3906.github.io/tags/NexT/"/>
     
   </entry>
   
   <entry>
     <title>利用Hexo+Next搭建个人博客（二）--使用next主题</title>
-    <link href="https://LXF-DX3906.github.io/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89-%E4%BD%BF%E7%94%A8next%E4%B8%BB%E9%A2%98/"/>
-    <id>https://LXF-DX3906.github.io/利用Hexo-Next搭建个人博客（二）-使用next主题/</id>
+    <link href="http://LXF-DX3906.github.io/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%BA%8C%EF%BC%89-%E4%BD%BF%E7%94%A8next%E4%B8%BB%E9%A2%98/"/>
+    <id>http://LXF-DX3906.github.io/利用Hexo-Next搭建个人博客（二）-使用next主题/</id>
     <published>2019-10-15T15:00:50.000Z</published>
     <updated>2019-10-17T15:18:21.085Z</updated>
     
@@ -83,19 +83,19 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://LXF-DX3906.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://LXF-DX3906.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://LXF-DX3906.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://LXF-DX3906.github.io/tags/Hexo/"/>
     
-      <category term="NexT" scheme="https://LXF-DX3906.github.io/tags/NexT/"/>
+      <category term="NexT" scheme="http://LXF-DX3906.github.io/tags/NexT/"/>
     
   </entry>
   
   <entry>
     <title>利用Hexo+Next搭建个人博客（一）--初始化demo</title>
-    <link href="https://LXF-DX3906.github.io/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89-%E5%88%9D%E5%A7%8B%E5%8C%96demo/"/>
-    <id>https://LXF-DX3906.github.io/利用Hexo-Next搭建个人博客（一）-初始化demo/</id>
+    <link href="http://LXF-DX3906.github.io/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89-%E5%88%9D%E5%A7%8B%E5%8C%96demo/"/>
+    <id>http://LXF-DX3906.github.io/利用Hexo-Next搭建个人博客（一）-初始化demo/</id>
     <published>2019-10-15T15:00:31.000Z</published>
     <updated>2019-10-17T15:13:31.162Z</updated>
     
@@ -108,19 +108,19 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://LXF-DX3906.github.io/categories/Hexo/"/>
+      <category term="Hexo" scheme="http://LXF-DX3906.github.io/categories/Hexo/"/>
     
     
-      <category term="Hexo" scheme="https://LXF-DX3906.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://LXF-DX3906.github.io/tags/Hexo/"/>
     
-      <category term="NexT" scheme="https://LXF-DX3906.github.io/tags/NexT/"/>
+      <category term="NexT" scheme="http://LXF-DX3906.github.io/tags/NexT/"/>
     
   </entry>
   
   <entry>
     <title>利用ETL工具Kettle（Pentaho Data Integration）将csv文件导入sql server数据库</title>
-    <link href="https://LXF-DX3906.github.io/%E5%88%A9%E7%94%A8ETL%E5%B7%A5%E5%85%B7Kettle%EF%BC%88Pentaho-Data-Integration%EF%BC%89%E5%B0%86csv%E6%96%87%E4%BB%B6%E5%AF%BC%E5%85%A5sql-server%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    <id>https://LXF-DX3906.github.io/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/</id>
+    <link href="http://LXF-DX3906.github.io/%E5%88%A9%E7%94%A8ETL%E5%B7%A5%E5%85%B7Kettle%EF%BC%88Pentaho-Data-Integration%EF%BC%89%E5%B0%86csv%E6%96%87%E4%BB%B6%E5%AF%BC%E5%85%A5sql-server%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://LXF-DX3906.github.io/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/</id>
     <published>2019-09-30T07:52:35.000Z</published>
     <updated>2019-10-15T15:02:56.250Z</updated>
     
@@ -133,19 +133,19 @@
     </summary>
     
     
-      <category term="数据仓库" scheme="https://LXF-DX3906.github.io/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+      <category term="数据仓库" scheme="http://LXF-DX3906.github.io/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
     
     
-      <category term="SQL Server" scheme="https://LXF-DX3906.github.io/tags/SQL-Server/"/>
+      <category term="SQL Server" scheme="http://LXF-DX3906.github.io/tags/SQL-Server/"/>
     
-      <category term="Kettle" scheme="https://LXF-DX3906.github.io/tags/Kettle/"/>
+      <category term="Kettle" scheme="http://LXF-DX3906.github.io/tags/Kettle/"/>
     
   </entry>
   
   <entry>
     <title>山川过雨晓光浮，初看江南第一州</title>
-    <link href="https://LXF-DX3906.github.io/%E5%8D%97%E4%BA%AC/"/>
-    <id>https://LXF-DX3906.github.io/南京/</id>
+    <link href="http://LXF-DX3906.github.io/%E5%8D%97%E4%BA%AC/"/>
+    <id>http://LXF-DX3906.github.io/南京/</id>
     <published>2019-08-11T15:06:42.000Z</published>
     <updated>2019-10-15T15:02:23.965Z</updated>
     
@@ -158,19 +158,19 @@
     </summary>
     
     
-      <category term="遇见风景" scheme="https://LXF-DX3906.github.io/categories/%E9%81%87%E8%A7%81%E9%A3%8E%E6%99%AF/"/>
+      <category term="遇见风景" scheme="http://LXF-DX3906.github.io/categories/%E9%81%87%E8%A7%81%E9%A3%8E%E6%99%AF/"/>
     
-      <category term="南京" scheme="https://LXF-DX3906.github.io/categories/%E9%81%87%E8%A7%81%E9%A3%8E%E6%99%AF/%E5%8D%97%E4%BA%AC/"/>
+      <category term="南京" scheme="http://LXF-DX3906.github.io/categories/%E9%81%87%E8%A7%81%E9%A3%8E%E6%99%AF/%E5%8D%97%E4%BA%AC/"/>
     
     
-      <category term="游记" scheme="https://LXF-DX3906.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
+      <category term="游记" scheme="http://LXF-DX3906.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>逃避虽可耻但有用</title>
-    <link href="https://LXF-DX3906.github.io/%E9%80%83%E9%81%BF%E8%99%BD%E5%8F%AF%E8%80%BB%E4%BD%86%E6%9C%89%E7%94%A8/"/>
-    <id>https://LXF-DX3906.github.io/逃避虽可耻但有用/</id>
+    <link href="http://LXF-DX3906.github.io/%E9%80%83%E9%81%BF%E8%99%BD%E5%8F%AF%E8%80%BB%E4%BD%86%E6%9C%89%E7%94%A8/"/>
+    <id>http://LXF-DX3906.github.io/逃避虽可耻但有用/</id>
     <published>2019-07-29T12:34:11.000Z</published>
     <updated>2019-10-17T05:41:23.343Z</updated>
     
@@ -183,19 +183,19 @@
     </summary>
     
     
-      <category term="影视" scheme="https://LXF-DX3906.github.io/categories/%E5%BD%B1%E8%A7%86/"/>
+      <category term="影视" scheme="http://LXF-DX3906.github.io/categories/%E5%BD%B1%E8%A7%86/"/>
     
-      <category term="逃避虽可耻但有用" scheme="https://LXF-DX3906.github.io/categories/%E5%BD%B1%E8%A7%86/%E9%80%83%E9%81%BF%E8%99%BD%E5%8F%AF%E8%80%BB%E4%BD%86%E6%9C%89%E7%94%A8/"/>
+      <category term="逃避虽可耻但有用" scheme="http://LXF-DX3906.github.io/categories/%E5%BD%B1%E8%A7%86/%E9%80%83%E9%81%BF%E8%99%BD%E5%8F%AF%E8%80%BB%E4%BD%86%E6%9C%89%E7%94%A8/"/>
     
     
-      <category term="观后感" scheme="https://LXF-DX3906.github.io/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+      <category term="观后感" scheme="http://LXF-DX3906.github.io/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
     
   </entry>
   
   <entry>
     <title>乌镇</title>
-    <link href="https://LXF-DX3906.github.io/%E4%B9%8C%E9%95%87/"/>
-    <id>https://LXF-DX3906.github.io/乌镇/</id>
+    <link href="http://LXF-DX3906.github.io/%E4%B9%8C%E9%95%87/"/>
+    <id>http://LXF-DX3906.github.io/乌镇/</id>
     <published>2019-07-27T08:28:44.000Z</published>
     <updated>2019-10-15T15:01:32.613Z</updated>
     
@@ -208,19 +208,19 @@
     </summary>
     
     
-      <category term="遇见风景" scheme="https://LXF-DX3906.github.io/categories/%E9%81%87%E8%A7%81%E9%A3%8E%E6%99%AF/"/>
+      <category term="遇见风景" scheme="http://LXF-DX3906.github.io/categories/%E9%81%87%E8%A7%81%E9%A3%8E%E6%99%AF/"/>
     
-      <category term="乌镇" scheme="https://LXF-DX3906.github.io/categories/%E9%81%87%E8%A7%81%E9%A3%8E%E6%99%AF/%E4%B9%8C%E9%95%87/"/>
+      <category term="乌镇" scheme="http://LXF-DX3906.github.io/categories/%E9%81%87%E8%A7%81%E9%A3%8E%E6%99%AF/%E4%B9%8C%E9%95%87/"/>
     
     
-      <category term="游记" scheme="https://LXF-DX3906.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
+      <category term="游记" scheme="http://LXF-DX3906.github.io/tags/%E6%B8%B8%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>基于PyQT、PocketSphinx的python语音识别小程序</title>
-    <link href="https://LXF-DX3906.github.io/%E5%9F%BA%E4%BA%8EPyQT%E3%80%81PocketSphinx%E7%9A%84python%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    <id>https://LXF-DX3906.github.io/基于PyQT、PocketSphinx的python语音识别小程序/</id>
+    <link href="http://LXF-DX3906.github.io/%E5%9F%BA%E4%BA%8EPyQT%E3%80%81PocketSphinx%E7%9A%84python%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://LXF-DX3906.github.io/基于PyQT、PocketSphinx的python语音识别小程序/</id>
     <published>2019-07-27T01:58:35.000Z</published>
     <updated>2019-10-16T00:51:16.982Z</updated>
     
@@ -233,10 +233,10 @@
     </summary>
     
     
-      <category term="technology" scheme="https://LXF-DX3906.github.io/categories/technology/"/>
+      <category term="technology" scheme="http://LXF-DX3906.github.io/categories/technology/"/>
     
     
-      <category term="python" scheme="https://LXF-DX3906.github.io/tags/python/"/>
+      <category term="python" scheme="http://LXF-DX3906.github.io/tags/python/"/>
     
   </entry>
   
