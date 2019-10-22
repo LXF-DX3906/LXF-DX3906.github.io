@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git命令速查表</title>
+    <url>/git%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/</url>
+    <content><![CDATA[<p><img src="//lvxuefei.top/git命令速查表/1486348362884912.jpg" alt="1486348362884912"></p>
+<p>图片来源： <a href="https://www.w3cschool.cn/git/git-cheat-sheet.html" target="_blank" rel="noopener">https://www.w3cschool.cn/git/git-cheat-sheet.html</a> </p>
+]]></content>
+      <categories>
+        <category>technology</category>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo站点配置文件说明</title>
     <url>/Hexo%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E/</url>
     <content><![CDATA[<p>以下是<code>站点配置文件</code>的默认内容，这里将里面的配置项都注释说明，可以根据需要自定义配置。</p>
@@ -240,6 +254,7 @@
 <p>最后附上一篇大佬的文章<a href="https://yangbingdong.com/2017/build-blog-hexo-advanced/" target="_blank" rel="noopener">基于Hexo搭建个人博客——进阶篇(从入门到入土)</a></p>
 ]]></content>
       <categories>
+        <category>technology</category>
         <category>Hexo</category>
       </categories>
       <tags>
@@ -325,6 +340,7 @@
 <p>发布后可在<code>http://yourgithubname.github.io</code>上查看。</p>
 ]]></content>
       <categories>
+        <category>technology</category>
         <category>Hexo</category>
       </categories>
       <tags>
@@ -408,6 +424,7 @@
 <p>​            <a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a></p>
 ]]></content>
       <categories>
+        <category>technology</category>
         <category>Hexo</category>
       </categories>
       <tags>
@@ -492,6 +509,7 @@
 <p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r15o871vj31c00oq41w.jpg" alt="1569829711152.png"></p>
 ]]></content>
       <categories>
+        <category>technology</category>
         <category>数据仓库</category>
       </categories>
       <tags>
