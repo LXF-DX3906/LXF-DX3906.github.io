@@ -10,7 +10,7 @@
 
 <h1 id="1-java的基本数据类型与引用数据类型"><a href="#1-java的基本数据类型与引用数据类型" class="headerlink" title="1. java的基本数据类型与引用数据类型"></a>1. java的基本数据类型与引用数据类型</h1><pre><code>                    ┏数值型━┳━整数型：byte、short、int、long
 
-       ┏基本数据类型━━┫      ┗━浮点型：float、double
+       ┏基本数据类型━┫      ┗━浮点型：float、double
 
        ┃            ┣字符型：char
 
@@ -18,7 +18,7 @@
 
        ┃            ┏类（class）
 
-       ┗引用数据类型━━╋接口（interface）
+       ┗引用数据类型━╋接口（interface）
 
                     ┗数组（array）</code></pre><p>Java中有两类数据类型：基本数据类型与引用数据类型，<strong>基本数据类型直接保存数据的值，而引用数据类型只保存指向存储其所表示的值的地址</strong>。以String与int为例，String是Java的一个类，属于引用数据类型，所以String其实相当于一个指针（当然指针只是借用C++里的说法，Java中是没有指针的），而int属于基本数据类型，其声明的变量直接存储值。</p>
 <br>
@@ -30,7 +30,7 @@
 <h2 id="1-2-用代码说明"><a href="#1-2-用代码说明" class="headerlink" title="1.2 用代码说明"></a>1.2 用代码说明</h2><p><strong>首先要明白判断两字符串相等时String的<code>&quot;str1==str2&quot;</code>与<code>&quot;str1.equals(str2)&quot;</code>的区别</strong></p>
 <p><code>&quot;==&quot;</code>返回<code>true</code>时代表<code>str1</code>和<code>str2</code>指向同一个物理空间。</p>
 <p><code>equals</code>返回<code>true</code>时代表<code>str1</code>和`str2所指向的物理空间中存储的String值相等，并不需要两者同时指向一个物理空间，如下图：</p>
-<p><img src="//lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/string1.png" alt="string1"></p>
+<p><img src="//lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/String1.png" alt="String1"></p>
 <p><strong>再跟据以下代码说明String与int的不同：</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//这种情况下str1与str2指向同一个物理空间，值也相同</span></span><br><span class="line">        String str1 = <span class="string">"strvalue"</span>;</span><br><span class="line">        String str2 = <span class="string">"strvalue"</span>;   <span class="comment">//这里String str2 = "strvalue"与String str2 = str1是完全相同的</span></span><br><span class="line">        System.out.println(<span class="string">"str1 == str2: "</span> +  (str1 == str2));</span><br><span class="line">        System.out.println(<span class="string">"str1.equals(str2): "</span> +  (str1.equals(str2)));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果通过new String()的方法来声明str3与str4，两者会指向不同的物理空间</span></span><br><span class="line">        String str3 = <span class="keyword">new</span> String(<span class="string">"strvalue"</span>);</span><br><span class="line">        String str4 = <span class="keyword">new</span> String(<span class="string">"strvalue"</span>);</span><br><span class="line">        System.out.println(<span class="string">"str3 == str4: "</span> +  (str3 == str4));</span><br><span class="line">        System.out.println(<span class="string">"str3.equals(str4): "</span> +  (str3.equals(str4)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
