@@ -38,9 +38,9 @@
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":true,"color":"#222","save":"manual"},
     fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
     algolia: {
       appID: '',
       apiKey: '',
@@ -68,38 +68,10 @@
 <meta property="og:site_name" content="槐雪">
 <meta property="og:description" content="0.预装环境jdk1.8（我测试的结果是java SE 13不适配kettle8.3.0.0-371，虽然可以打开kettle，但是无法创建数据库连接，把新版本java卸了重新安装旧版本也是一件挺麻烦的事）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0x3p1lcj30o50j8abw.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xe9ty2j30o50j7mzh.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xtxxtlj31hc0smjt6.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0y75mj2j310c00vgli.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yd85inj308v0a1gny.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ylmudtj30wu0oujtt.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yuxp14j30wu0ou0w0.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0z6vxgqj31c00ph75m.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ze6aitj31c00phju0.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0zp6j6cj31c00ph0v6.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r10knjf5j30n20k0ab5.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r10rkevpj30kg0anaar.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r110mrmoj30ph0juwet.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r118mhdgj31c00phtat.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r11t1jgzj31c00le0uk.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r1274esnj31hc0smq4u.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r12o7ywxj30xw0ihaax.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r130gf27j30xw0ih75i.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r1394tenj31hc0smq5a.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r13ss98gj30qo0sewfj.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r14crvjrj31hc0smwgo.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r14jhk75j30ro0set9n.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r14r1w7zj31200p1aa9.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r14y10u6j31200se0t4.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r154nmsnj31hc0smgou.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r15bvaj0j31c00legng.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r15o871vj31c00oq41w.jpg">
 <meta property="og:updated_time" content="2019-10-22T15:42:52.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用ETL工具Kettle（Pentaho Data Integration）将csv文件导入sql server数据库">
 <meta name="twitter:description" content="0.预装环境jdk1.8（我测试的结果是java SE 13不适配kettle8.3.0.0-371，虽然可以打开kettle，但是无法创建数据库连接，把新版本java卸了重新安装旧版本也是一件挺麻烦的事）">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/007oltUXly1g7r0x3p1lcj30o50j8abw.jpg">
   <link rel="canonical" href="https://lvxuefei.top/利用ETL工具Kettle（Pentaho-Data-Integration）将csv文件导入sql-server数据库/">
 
 
@@ -118,7 +90,7 @@
   
 
 
-  <script>
+  <script pjax>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -445,26 +417,26 @@
 
 <h2 id="1-下载开源ETL工具："><a href="#1-下载开源ETL工具：" class="headerlink" title="1.下载开源ETL工具："></a>1.下载开源ETL工具：</h2><p>Pentaho Kettle：<a href="https://community.hitachivantara.com/s/article/downloads" target="_blank" rel="noopener">https://community.hitachivantara.com/s/article/downloads</a> 网页中的Data Integration</p>
 <p>下载好后为一压缩文件，将压缩文件解压到任意文件夹即可，解压后内容如下。</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0x3p1lcj30o50j8abw.jpg" alt="1569824832312.png"></p>
+<p><img alt="1569824832312.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0x3p1lcj30o50j8abw.jpg"></p>
 <p>单击<strong>Spoon.bat</strong>，打开kettle，第一次打开大概要等几分钟。</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xe9ty2j30o50j7mzh.jpg" alt="1569825081518.png"></p>
+<p><img alt="1569825081518.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xe9ty2j30o50j7mzh.jpg"></p>
 <p>打开后界面如下</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xtxxtlj31hc0smjt6.jpg" alt="1569825417291.png"></p>
+<p><img alt="1569825417291.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0xtxxtlj31hc0smjt6.jpg"></p>
 <p>如果点开十分钟仍没有任何反应，可以以记事本方式打开Spoon.bat并修改Spoon.bat里面的内容，<strong>将-Xms与-Xmx后的参数全改为512</strong>，之后重新打开。</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0y75mj2j310c00vgli.jpg" alt="1569825309180.png"></p>
+<p><img alt="1569825309180.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0y75mj2j310c00vgli.jpg"></p>
 <h2 id="2-安装sql-server"><a href="#2-安装sql-server" class="headerlink" title="2.安装sql server"></a>2.安装sql server</h2><p>网上sql server的安装教程有很多，不再赘述。</p>
 <p>安装后有以下工具</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yd85inj308v0a1gny.jpg" alt="1569825491401.png"></p>
+<p><img alt="1569825491401.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yd85inj308v0a1gny.jpg"></p>
 <h2 id="3-使用Kettle将CSV文件内容导入sql-server数据库"><a href="#3-使用Kettle将CSV文件内容导入sql-server数据库" class="headerlink" title="3.使用Kettle将CSV文件内容导入sql server数据库"></a>3.使用Kettle将CSV文件内容导入sql server数据库</h2><h3 id="3-1配置sql-server"><a href="#3-1配置sql-server" class="headerlink" title="3.1配置sql server"></a>3.1配置sql server</h3><p>在开始正式步骤之前，需修改一下sql server的网络配置，打开<strong>SQL Server 2107 配置管理器</strong>，右键SQL Native Client11.0配置的客户端协议中的TCP/IP选项，将其设为启用状态。</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ylmudtj30wu0oujtt.jpg" alt="1569825801763.png"></p>
+<p><img alt="1569825801763.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ylmudtj30wu0oujtt.jpg"></p>
 <p>将SQL Server服务中的三个服务全设置为运行状态</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yuxp14j30wu0ou0w0.jpg" alt="1569825889686.png"></p>
+<p><img alt="1569825889686.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0yuxp14j30wu0ou0w0.jpg"></p>
 <p>打开<strong>Microsoft SQL Server Management Studio</strong>，采用默认方式，直接单击连接</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0z6vxgqj31c00ph75m.jpg" alt="1569826016006.png"></p>
+<p><img alt="1569826016006.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0z6vxgqj31c00ph75m.jpg"></p>
 <p>打开左侧面板：安全性—&gt;登录名，右键用户sa，选择属性，这里可以设置用户sa的密码，直接在密码框中输入即可</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ze6aitj31c00phju0.jpg" alt="1569826170590.png"></p>
+<p><img alt="1569826170590.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0ze6aitj31c00phju0.jpg"></p>
 <p>单击sa属性窗口左侧的<strong>状态</strong>项，将<strong>登录名</strong>设置为启用状态。</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0zp6j6cj31c00ph0v6.jpg" alt="1569826298788.png"></p>
+<p><img alt="1569826298788.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r0zp6j6cj31c00ph0v6.jpg"></p>
 <p>至此，SQL Server前期配置完成。</p>
 <h3 id="3-2下载jTDS-SQL-Server-and-Sybase-JDBC-driver"><a href="#3-2下载jTDS-SQL-Server-and-Sybase-JDBC-driver" class="headerlink" title="3.2下载jTDS - SQL Server and Sybase JDBC driver"></a>3.2下载jTDS - SQL Server and Sybase JDBC driver</h3><p>Java连接SQL Server 2000数据库时，有两种方法：</p>
 <p>（1）通过Microsoft的JDBC驱动连接。但是该种方法目前已不适用。</p>
@@ -472,17 +444,17 @@
 <p>（2）通过jTDS驱动连接。下载地址：<a href="http://sourceforge.net/projects/jtds/files/jtds/" target="_blank" rel="noopener">http://sourceforge.net/projects/jtds/files/jtds/</a></p>
 <p>驱动程序名称：net.sourceforge.jtds.jdbc.Driver</p>
 <p>下载jTDS - SQL Server and Sybase JDBC driver，将压缩文件中的jtds-1.3.1.jar包放入kettle的lib文件夹下</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r10knjf5j30n20k0ab5.jpg" alt="1569829056661.png"></p>
+<p><img alt="1569829056661.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r10knjf5j30n20k0ab5.jpg"></p>
 <p>kettle配置完成</p>
 <h3 id="3-3将csv文件导入sql-server数据库"><a href="#3-3将csv文件导入sql-server数据库" class="headerlink" title="3.3将csv文件导入sql server数据库"></a>3.3将csv文件导入sql server数据库</h3><p>新建test.csv文件，输入测试内容</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r10rkevpj30kg0anaar.jpg" alt="1569826865642.png"></p>
+<p><img alt="1569826865642.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r10rkevpj30kg0anaar.jpg"></p>
 <p>打开<strong>Microsoft SQL Server Management Studio</strong>，在左侧栏右键数据库-&gt;新建数据库，输入数据库名称test</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r110mrmoj30ph0juwet.jpg" alt="1569827260933.png"></p>
+<p><img alt="1569827260933.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r110mrmoj30ph0juwet.jpg"></p>
 <p>打开左侧面板test-&gt;表，右键表-&gt;新建-&gt;表，命名为csv_to_db，插入列ID，NAME，RELEASE_TIME，点击保存</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r118mhdgj31c00phtat.jpg" alt="1569827316253.png"></p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r11t1jgzj31c00le0uk.jpg" alt="1569829543759.png"></p>
+<p><img alt="1569827316253.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r118mhdgj31c00phtat.jpg"></p>
+<p><img alt="1569829543759.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r11t1jgzj31c00le0uk.jpg"></p>
 <p>打开kettle，文件-&gt;新建-&gt;转换，新建转换</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r1274esnj31hc0smq4u.jpg" alt="1569827001843.png"></p>
+<p><img alt="1569827001843.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r1274esnj31hc0smq4u.jpg"></p>
 <p>在主对象树中，右键DB连接-&gt;新建数据库连接</p>
 <p>参数如下：</p>
 <p>主机名称：localhost或127.0.0.1均可</p>
@@ -491,27 +463,27 @@
 <p>端口号：默认为1433</p>
 <p>用户名：我们在前面设置为启用状态的登录名sa</p>
 <p>密码：在前面为sa设置的密码</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r12o7ywxj30xw0ihaax.jpg" alt="1569827700107.png"></p>
+<p><img alt="1569827700107.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r12o7ywxj30xw0ihaax.jpg"></p>
 <p>点击测试，如下即为连接成功</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r130gf27j30xw0ih75i.jpg" alt="1569827858731.png"></p>
+<p><img alt="1569827858731.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r130gf27j30xw0ih75i.jpg"></p>
 <p>单击kettle左侧栏核心对象，在输入栏下将csv文件拖入工作区</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r1394tenj31hc0smq5a.jpg" alt="1569827998760.png"></p>
+<p><img alt="1569827998760.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r1394tenj31hc0smq5a.jpg"></p>
 <p>双击csv文件输入图标，选择数据源，点击获取字段，确认，之后确定</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r13ss98gj30qo0sewfj.jpg" alt="1569828077122.png"></p>
+<p><img alt="1569828077122.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r13ss98gj30qo0sewfj.jpg"></p>
 <p>在输出栏将表输出拖入工作区，按住shift利用鼠标从csv文件输入拖到表输出，点击主输出步骤</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14crvjrj31hc0smwgo.jpg" alt="1569828130523.png"></p>
+<p><img alt="1569828130523.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14crvjrj31hc0smwgo.jpg"></p>
 <p>双击表输出，选择数据库连接test，浏览目标表，选择上面新建的csv_to_db，勾选指定数据库字段，点击获取字段</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14jhk75j30ro0set9n.jpg" alt="1569828267096.png"></p>
+<p><img alt="1569828267096.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14jhk75j30ro0set9n.jpg"></p>
 <p>点击输入字段映射，此时会报出提示，继续点击确定，选择csv中要映射的数据库表字段，单击ADD</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14r1w7zj31200p1aa9.jpg" alt="1569828365147.png"></p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14y10u6j31200se0t4.jpg" alt="1569828590146.png"></p>
+<p><img alt="1569828365147.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14r1w7zj31200p1aa9.jpg"></p>
+<p><img alt="1569828590146.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r14y10u6j31200se0t4.jpg"></p>
 <p>确定后，点击工作区上侧的运行，转换成功</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r154nmsnj31hc0smgou.jpg" alt="1569828699761.png"></p>
+<p><img alt="1569828699761.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r154nmsnj31hc0smgou.jpg"></p>
 <p>转换成功，可在<strong>Microsoft SQL Server Management Studio</strong>中通过sql语句查询查看结果（没找到像oracle数据库中那样可以直接查看表内容的方法，只能用sql语句了）。</p>
 <p>右键test-&gt;新建查询</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r15bvaj0j31c00legng.jpg" alt="1569829169151.png"></p>
+<p><img alt="1569829169151.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r15bvaj0j31c00legng.jpg"></p>
 <p>输入查询语句，结果如下</p>
-<p><img src="http://ww1.sinaimg.cn/large/007oltUXly1g7r15o871vj31c00oq41w.jpg" alt="1569829711152.png"></p>
+<p><img alt="1569829711152.png" data-src="http://ww1.sinaimg.cn/large/007oltUXly1g7r15o871vj31c00oq41w.jpg"></p>
 
     </div>
 	
@@ -775,7 +747,7 @@ setInterval("createtime()",250);
 
         
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
       <!--<span class="post-meta-item-icon">-->
         <!--<i class="fa fa-user"></i>-->
@@ -823,17 +795,78 @@ setInterval("createtime()",250);
   
   <script color='120,120,120' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
 <script src="/js/schemes/muse.js?v=7.4.1"></script>
 <script src="/js/next-boot.js?v=7.4.1"></script><script src="/js/bookmark.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
 
   <script defer src="/lib/three/three.min.js"></script>
 
 
   
-  <script>
+  <script pjax>
     (function(){
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
@@ -864,6 +897,7 @@ setInterval("createtime()",250);
 
 
 
+    <div id="pjax">
 
   
 
@@ -898,5 +932,6 @@ NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min
 }, window.Valine);
 </script>
 
+    </div>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":135,"height":375},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body>
 </html>
