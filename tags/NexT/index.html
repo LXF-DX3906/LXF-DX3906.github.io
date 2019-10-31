@@ -30,7 +30,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '7.4.1',
     exturl: false,
     sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
@@ -662,6 +662,7 @@ setInterval("createtime()",250);
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
 <script src="/js/schemes/muse.js?v=7.4.1"></script>
+
 <script src="/js/next-boot.js?v=7.4.1"></script><script src="/js/bookmark.js?v=7.4.1"></script>
   <script>
 var pjax = new Pjax({
@@ -792,5 +793,16 @@ NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min
 </script>
 
     </div>
+
+  
+<!-- 自定义的js文件 -->
+<script type="text/javascript" src="/js/myjs/motto.js"></script>
+<script type="text/javascript" src="/js/myjs/jquery-3.4.1.min.js"></script>
+<script>
+    $(".motto").html(getMingYanContent());
+</script>
+
+
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":135,"height":375},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body>
 </html>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lvxuefei.top/categories/index.html</loc>
+    
+    <lastmod>2019-10-31T15:12:06.233Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lvxuefei.top/tags/index.html</loc>
+    
+    <lastmod>2019-10-31T15:11:45.835Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lvxuefei.top/%E5%85%B3%E4%BA%8EJava-String%E5%9C%B0%E5%9D%80%E4%B8%8E%E5%80%BC%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8CJava-Object%E7%9A%84clone-%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2019-10-29T03:45:02.020Z</lastmod>
@@ -68,20 +82,6 @@
     <loc>https://lvxuefei.top/archives/index.html</loc>
     
     <lastmod>2019-10-17T05:45:15.354Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lvxuefei.top/categories/index.html</loc>
-    
-    <lastmod>2019-10-17T05:44:59.859Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lvxuefei.top/tags/index.html</loc>
-    
-    <lastmod>2019-10-17T05:44:35.083Z</lastmod>
     
   </url>
   
