@@ -863,9 +863,10 @@ NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min
   
 <!-- 自定义的js文件 -->
 <script type="text/javascript" src="/js/myjs/motto.js"></script>
-<script type="text/javascript" src="/js/myjs/jquery-3.4.1.min.js"></script>
 <script>
-    $(".motto").html(getMingYanContent());
+    motto=document.getElementsByClassName('motto')
+    motto[0].innerHTML=getMingYanContent()
+    console.log(window)
 </script>
 
 
