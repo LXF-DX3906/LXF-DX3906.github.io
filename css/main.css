@@ -297,7 +297,7 @@ td {
 }
 .btn {
   background: transparent;
-  border: 2px solid #222;
+  border: 2px solid #555;
   border-radius: 15px;
   color: #555;
   display: inline-block;
@@ -313,7 +313,7 @@ td {
 .btn:hover {
   background: #222;
   border-color: #222;
-  color: #fff;
+  color: #222;
 }
 .btn + .btn {
   margin: 0 0 8px 8px;
@@ -903,7 +903,7 @@ pre .javascript .function {
 .comment-button-group .comment-button.active {
   background: #222;
   border-color: #222;
-  color: #fff;
+  color: #222;
 }
 .comment-position {
   display: none;
@@ -1182,7 +1182,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #20ff65;
+  background: #e4ffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2588,9 +2588,6 @@ hr {
   -webkit-box-shadow: 0 0 15px rgba(202,203,203,0.8);
   -moz-box-shadow: 0 0 15px rgba(202,203,204,0.8);
 }
-.main-inner {
-  width: 800px;
-}
 .site-subtitle {
   font-size: 1em;
 }
@@ -2599,14 +2596,4 @@ hr {
 }
 .btn {
   background: rgba(255,255,255,0);
-}
-.motto {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-family: "KaiTi", "STXingkai", "Source Sans Pro", "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", FontAwesome, sans-serif;
-  font-size: 1.35em;
-  text-align: center;
 }
