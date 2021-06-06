@@ -64,7 +64,7 @@
 <meta name="keywords" content="Java String地址与值,Java clone">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Java String地址与值的理解和Java Object的clone()方法">
-<meta property="og:url" content="https://lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/index.html">
+<meta property="og:url" content="https://www.lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/index.html">
 <meta property="og:site_name" content="槐雪">
 <meta property="og:description" content="在学习设计模式中的Prototype Patterns时，了解到Java的根类Object提供了一个clone()方法（Object是所有类的父类，其一共提供了11个方法，具体详解可以看这篇文章），可以很容易实现Prototype Patterns。但clone()方法有浅克隆和深克隆两种，其中涉及到了java基本数据类型与其他数据类型的值与地址的问题。">
 <meta property="og:locale" content="zh-CN">
@@ -72,7 +72,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Java String地址与值的理解和Java Object的clone()方法">
 <meta name="twitter:description" content="在学习设计模式中的Prototype Patterns时，了解到Java的根类Object提供了一个clone()方法（Object是所有类的父类，其一共提供了11个方法，具体详解可以看这篇文章），可以很容易实现Prototype Patterns。但clone()方法有浅克隆和深克隆两种，其中涉及到了java基本数据类型与其他数据类型的值与地址的问题。">
-  <link rel="canonical" href="https://lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/">
+  <link rel="canonical" href="https://www.lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/">
 
 
 <script id="page-configurations">
@@ -281,7 +281,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/">
+    <link itemprop="mainEntityOfPage" href="https://www.lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Monodrama">
@@ -439,7 +439,7 @@
 <h2 id="1-2-用代码说明"><a href="#1-2-用代码说明" class="headerlink" title="1.2 用代码说明"></a>1.2 用代码说明</h2><p><strong>首先要明白判断两字符串相等时String的<code>&quot;str1==str2&quot;</code>与<code>&quot;str1.equals(str2)&quot;</code>的区别</strong></p>
 <p><code>&quot;==&quot;</code>返回<code>true</code>时代表<code>str1</code>和<code>str2</code>指向同一个物理空间。</p>
 <p><code>equals</code>返回<code>true</code>时代表<code>str1</code>和`str2所指向的物理空间中存储的String值相等，并不需要两者同时指向一个物理空间，如下图：</p>
-<p><img alt="String1" data-src="//lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/String1.png"></p>
+<p><img alt="String1" data-src="//www.lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/String1.png"></p>
 <p><strong>再跟据以下代码说明String与int的不同：</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//这种情况下str1与str2指向同一个物理空间，值也相同</span></span><br><span class="line">        String str1 = <span class="string">"strvalue"</span>;</span><br><span class="line">        String str2 = <span class="string">"strvalue"</span>;   <span class="comment">//这里String str2 = "strvalue"与String str2 = str1是完全相同的</span></span><br><span class="line">        System.out.println(<span class="string">"str1 == str2: "</span> +  (str1 == str2));</span><br><span class="line">        System.out.println(<span class="string">"str1.equals(str2): "</span> +  (str1.equals(str2)));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果通过new String()的方法来声明str3与str4，两者会指向不同的物理空间</span></span><br><span class="line">        String str3 = <span class="keyword">new</span> String(<span class="string">"strvalue"</span>);</span><br><span class="line">        String str4 = <span class="keyword">new</span> String(<span class="string">"strvalue"</span>);</span><br><span class="line">        System.out.println(<span class="string">"str3 == str4: "</span> +  (str3 == str4));</span><br><span class="line">        System.out.println(<span class="string">"str3.equals(str4): "</span> +  (str3.equals(str4)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -531,7 +531,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/" title="关于Java String地址与值的理解和Java Object的clone()方法">https://lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/</a>
+    <a href="https://www.lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/" title="关于Java String地址与值的理解和Java Object的clone()方法">https://www.lvxuefei.top/关于Java-String地址与值的理解和Java-Object的clone-方法/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
