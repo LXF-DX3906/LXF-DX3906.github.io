@@ -313,7 +313,7 @@ td {
 .btn:hover {
   background: #222;
   border-color: #222;
-  color: #555;
+  color: #999;
 }
 .btn + .btn {
   margin: 0 0 8px 8px;
@@ -903,7 +903,7 @@ pre .javascript .function {
 .comment-button-group .comment-button.active {
   background: #222;
   border-color: #222;
-  color: #555;
+  color: #999;
 }
 .comment-position {
   display: none;
@@ -1206,7 +1206,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffff8e;
+  background: #38ff05;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
