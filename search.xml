@@ -83,6 +83,7 @@
 <p><img alt="image-20210607194257332" data-src="//www.lvxuefei.top/利用Hexo-Next搭建个人博客——使用Vercel加速网站/image-20210607194257332.png"></p>
 <p>加速成功后，使用<a href="https://www.17ce.com/site" target="_blank" rel="noopener">测速网站</a>测试网站访问速度。<del>别问我下面为什么几乎全绿(∩_∩)，因为我测了好几次截了个最好的</del>。</p>
 <p><img alt="Snipaste_2021-06-07_17-04-47" data-src="//www.lvxuefei.top/利用Hexo-Next搭建个人博客——使用Vercel加速网站/Snipaste_2021-06-07_17-04-47.png"></p>
+<p>以后在<code>deploy</code>到<code>GitHub Pages</code>上时，Vercel会自动同步更新，无需单独操作，可以说是很方便了。</p>
 <p>参考文章：</p>
 <blockquote>
 <p><a href="https://sspai.com/post/63028" target="_blank" rel="noopener">https://sspai.com/post/63028</a></p>
