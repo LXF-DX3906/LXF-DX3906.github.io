@@ -7,7 +7,7 @@
 <p>一番搜索之后，找到了一个非常好用，快速的平台——<a href="https://vercel.com/" target="_blank" rel="noopener">Vercel</a>。</p>
 <a id="more"></a>
 
-<h1 id="1-Vercel是什么"><a href="#1-Vercel是什么" class="headerlink" title="1.Vercel是什么"></a>1.Vercel是什么</h1><p>这部分内容主要是记录一下我对Vercel的认识，想要直接配置的话可以跳转到<a href="#2.使用Vercel加速网站">下一节</a>。</p>
+<h1 id="1-Vercel是什么"><a href="#1-Vercel是什么" class="headerlink" title="1.Vercel是什么"></a>1.Vercel是什么</h1><p>这部分内容主要是记录一下我对Vercel的认识，想要直接配置的话可以跳转到<a href="#2-使用Vercel加速网站">下一节</a>。</p>
 <p>下面是<a href="https://vercel.com/" target="_blank" rel="noopener">Vercel官网</a>给出的解释</p>
 <blockquote>
 <p>Vercel is a deployment and collaboration platform <strong>for frontend developers</strong>. Vercel puts the <strong>frontend developer first</strong>, giving them comprehensive tools to build high-performance websites and applications.</p>
