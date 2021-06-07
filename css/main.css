@@ -1182,7 +1182,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5dffff;
+  background: #4995ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2701,7 +2701,7 @@ pre {
   margin-bottom: 60px;
   border-radius: 20px;
   padding: 30px 60px 30px 60px;
-  background: rgba(255,255,255,0.8) none repeat scroll !important;
+  background: rgba(255,255,255,0.5) none repeat scroll !important;
 }
 .site-subtitle {
   font-size: 1em;
