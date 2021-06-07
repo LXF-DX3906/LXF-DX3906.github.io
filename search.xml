@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>利用Hexo-Next搭建个人博客——自定义样式</title>
+    <title>利用Hexo-Next搭建个人博客--自定义样式</title>
     <url>/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E2%80%94%E2%80%94%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F/</url>
     <content><![CDATA[<p>在一些搜到的自定义样式的文章里，一般都是说在css文件夹中的custom里，但是Next在我目前使用的7.4.1版本中抛弃了这一方式，在Next的<strong>主题配置文件</strong><code>_config.yml</code>中有一个关键词<code>custom_file_path</code>，在这里可以设置自定义的的样式文件的路径。具体原理就是利用自定义样式文件中的样式覆盖掉默认样式。</p>
 <a id="more"></a>
@@ -41,7 +41,7 @@
       </tags>
   </entry>
   <entry>
-    <title>利用Hexo-Next搭建个人博客——使用Vercel加速网站</title>
+    <title>利用Hexo-Next搭建个人博客--使用Vercel加速网站</title>
     <url>/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E2%80%94%E2%80%94%E4%BD%BF%E7%94%A8Vercel%E5%8A%A0%E9%80%9F%E7%BD%91%E7%AB%99/</url>
     <content><![CDATA[<p>随着<code>GitHub Pages</code>在国内的访问速度越来越慢，有时甚至直接无法访问，之前一直使用的Coding加速，后来随着Coding并入腾讯云，新版Coding如果使用Pages服务需要购买腾讯云的服务，旧版Coding已经无法使用。如果不想付费的话，寻找一种新的加速手段来加速博客势在必行。</p>
 <p>一番搜索之后，找到了一个非常好用，快速的平台——<a href="https://vercel.com/" target="_blank" rel="noopener">Vercel</a>。</p>
@@ -342,7 +342,7 @@
       </tags>
   </entry>
   <entry>
-    <title>利用Hexo+Next搭建个人博客（三）——优化</title>
+    <title>利用Hexo+Next搭建个人博客（三）--优化</title>
     <url>/%E5%88%A9%E7%94%A8Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%89%EF%BC%89-%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<p>搭建完一个博客的demo之后，为了让我们自己的博客变得刚好看一些，例如头像、动态背景、社交链接等等；还有功能更强大一些，例如添加搜索功能、支持<code>RSS</code>订阅、增加评论功能等等。接下来我们需要对博客进行各种自定义的设置。下面我列出了一些我做的自定义配置。</p>
 <a id="more"></a>
