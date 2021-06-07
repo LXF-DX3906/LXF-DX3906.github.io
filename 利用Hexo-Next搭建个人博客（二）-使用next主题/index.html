@@ -68,7 +68,7 @@
 <meta property="og:site_name" content="槐雪">
 <meta property="og:description" content="Hexo有很多主题可供选择，想要了解详细内容可以看一下知乎上的这个问题有哪些好看的Hexo主题 最终我选择了next。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-29T03:42:12.000Z">
+<meta property="og:updated_time" content="2021-06-07T13:51:15.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Hexo+Next搭建个人博客（二）--使用next主题">
 <meta name="twitter:description" content="Hexo有很多主题可供选择，想要了解详细内容可以看一下知乎上的这个问题有哪些好看的Hexo主题 最终我选择了next。">
@@ -322,7 +322,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-29 11:42:12" itemprop="dateModified" datetime="2019-10-29T11:42:12+08:00">2019-10-29</time>
+                <time title="修改时间：2021-06-07 21:51:15" itemprop="dateModified" datetime="2021-06-07T21:51:15+08:00">2021-06-07</time>
               </span>
             
           
@@ -421,12 +421,12 @@
 <h2 id="2-配置next主题"><a href="#2-配置next主题" class="headerlink" title="2.配置next主题"></a>2.配置next主题</h2><p>首先进行一下文件说明，在 <code>Hexo</code> 项目源码目录下，有两个主要的配置文件，其名称都是 <code>_config.yml</code> 。 其中，一份位于站点根目录下，主要包含 <code>Hexo</code> 本身的配置；另一份位于<code>themes\next</code>目录下，这份配置由主题作者提供，主要用于主题相关的配置。为了描述方便，在以下说明中，将前者称为<strong>站点配置文件</strong>， 后者称为<strong>主题配置文件</strong>。</p>
 <h3 id="2-1修改站点配置文件"><a href="#2-1修改站点配置文件" class="headerlink" title="2.1修改站点配置文件"></a>2.1修改站点配置文件</h3><p>打开<code>MyBlog1.1/</code>目录下的<strong>站点配置文件</strong><code>_config.yml</code>：</p>
 <p>前期可以先只更改一处内容，把标题、子标题、作者等自定义一下，其他的可以以后有时间研究，例如我的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 槐雪</span><br><span class="line">subtitle: 愿你所有快乐无需假装，愿你此生尽兴赤诚善良</span><br><span class="line">description: 个人博客</span><br><span class="line">keywords:</span><br><span class="line">author: Monodrama</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">槐雪</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">愿你所有快乐无需假装，愿你此生尽兴赤诚善良</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">个人博客</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Monodrama</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">Asia/Shanghai</span></span><br></pre></td></tr></table></figure>
 
 <p>关于站点配置文件的详细说明，可以查看 <a href="http://lvxuefei.top/2019/10/17/Hexo%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E/#more" target="_blank" rel="noopener">Hexo站点配置文件说明</a></p>
 <h3 id="2-2修改主题配置文件"><a href="#2-2修改主题配置文件" class="headerlink" title="2.2修改主题配置文件"></a>2.2修改主题配置文件</h3><p>打开<code>MyBlog1.1\themes\next</code>目录下的<code>_config.yml</code><strong>主题配置文件</strong></p>
 <h4 id="选择scheme"><a href="#选择scheme" class="headerlink" title="选择scheme"></a>选择scheme</h4><p>Next提供了四种不同的外观，在<strong>主题配置文件</strong>中找到Scheme Setting，根据个人喜好选择scheme</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Scheme Settings</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Scheme Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>Muse：</strong></p>
 <p><img alt="1571127888685" data-src="//www.lvxuefei.top/利用Hexo-Next搭建个人博客（二）-使用next主题/1571127888685.png"></p>
@@ -443,17 +443,17 @@
 <p>我们刚开始默认的菜单只有首页和归档两个，不能够满足我们的要求。</p>
 <p><img alt="1571128525006" data-src="//www.lvxuefei.top/利用Hexo-Next搭建个人博客（二）-使用next主题/1571128525006.png"></p>
 <p>所以需要添加菜单，打开 <strong>主题配置文件</strong> 找到<code>Menu Settings</code>，根据个人需要选择，将前面的#去掉即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Menu Settings</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">menu:</span><br><span class="line">  home: / || home                      #首页</span><br><span class="line">  #about: /about/ || user              #关于</span><br><span class="line">  #tags: /tags/ || tags                #标签</span><br><span class="line">  #categories: /categories/ || th	   #分类</span><br><span class="line">  archives: /archives/ || archive      #归档</span><br><span class="line">  #schedule: /schedule/ || calendar	   #日程表</span><br><span class="line">  #sitemap: /sitemap.xml || sitemap    #站点地图</span><br><span class="line">  #commonweal: /404/ || heartbeat      #公益404</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Menu Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line"><span class="attr">  home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">home</span>                      <span class="comment">#首页</span></span><br><span class="line">  <span class="comment">#about: /about/ || user              #关于</span></span><br><span class="line">  <span class="comment">#tags: /tags/ || tags                #标签</span></span><br><span class="line">  <span class="comment">#categories: /categories/ || th	   #分类</span></span><br><span class="line"><span class="attr">  archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">archive</span>      <span class="comment">#归档</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar	   #日程表</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap    #站点地图</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat      #公益404</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>初始化对应的Menu文件夹</strong></p>
 <p>去掉#后，还要初始化每个菜单项对应的页面的内容</p>
 <p>比如要创建tages页面，需要在命令行中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
 
 <p><img alt="1571128990055" data-src="//www.lvxuefei.top/利用Hexo-Next搭建个人博客（二）-使用next主题/1571128990055.png"></p>
 <p>这时会在<code>MyBlog1.1\source\</code>目录下生成一个名为tags的文件夹</p>
 <p>编辑/source/tags/index.md文件为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">date: 2019-10-05 16:02:39</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019</span><span class="bullet">-10</span><span class="bullet">-05</span> <span class="number">16</span><span class="string">:02:39</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">"tags"</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
 <p>增加对应的type字段，其中<code>comments</code>字段是控制评论功能的，关于添加评论功能会在后面讲到。</p>
 <p>其他页面同理。</p>
@@ -464,12 +464,12 @@
 <p><img alt="1571129951601" data-src="//www.lvxuefei.top/利用Hexo-Next搭建个人博客（二）-使用next主题/1571129951601.png"></p>
 <p>至此，我们已经拥有了一个简单实用的个人博客了，下面介绍如何发博文。</p>
 <h2 id="3-创建一篇文章"><a href="#3-创建一篇文章" class="headerlink" title="3.创建一篇文章"></a>3.创建一篇文章</h2><p>执行命令创建一篇文章</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &apos;测试文章&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">'测试文章'</span></span><br></pre></td></tr></table></figure>
 
 <p>我们发现在<code>MyBlog1.1\source\_posts\</code>目录下生成了测试文章.md。</p>
 <p>看到.md后缀应该可以知道hexo的文章支持markdown语法，至于markdown语法是什么就不再赘述，可以借助搜索引擎自行学习。</p>
 <p>编辑测试文章.md的内容为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 测试文章</span><br><span class="line">date: 2019-08-11 23:06:42</span><br><span class="line">tags: </span><br><span class="line">  - 标签1</span><br><span class="line">  - 标签2</span><br><span class="line">categories:</span><br><span class="line">  - 目录1</span><br><span class="line">  - 目录1的子目录</span><br><span class="line">photo: http://ww1.sinaimg.cn/large/007oltUXgy1g5egxq0hrhj33282ao7wj.jpg</span><br><span class="line">---</span><br><span class="line">这是摘要</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">以下是正文</span><br><span class="line"># 标题1</span><br><span class="line">1</span><br><span class="line">## 标题2</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">测试文章</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2019</span><span class="bullet">-08</span><span class="bullet">-11</span> <span class="number">23</span><span class="string">:06:42</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">  -</span> <span class="string">标签1</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">标签2</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">目录1</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">目录1的子目录</span></span><br><span class="line"><span class="attr">photo:</span> <span class="attr">http://ww1.sinaimg.cn/large/007oltUXgy1g5egxq0hrhj33282ao7wj.jpg</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="string">这是摘要</span></span><br><span class="line"><span class="string">&lt;!--</span> <span class="string">more</span> <span class="bullet">--&gt;</span></span><br><span class="line"><span class="string">以下是正文</span></span><br><span class="line"><span class="comment"># 标题1</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="comment">## 标题2</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
 
 <p>简单介绍一下文章前面的配置字段：</p>
 <p>其中<code>tags</code>为文章标签，格式如上，标签之间为并列关系，如下：</p>
@@ -479,7 +479,7 @@
 <p><code>photo</code>为文章的封面，是可选字段，加入之后会在首页中展示该篇文章的封面，不加入则只会显示文章摘要。</p>
 <p><code>&lt;!--more--&gt;</code>字段之前为文章摘要，会在首页中显示。</p>
 <p>通过命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>发布文章。</p>
 <p>不过每次发布前，建议先执行<code>hexo clean</code>和<code>hexo generate</code>进行清理编译。</p>
@@ -519,6 +519,13 @@
     <li class="popular-posts-item">
       
       
+      <div class="popular-posts-title"><a href="/利用Hexo-Next搭建个人博客（三）-优化/" rel="bookmark">利用Hexo+Next搭建个人博客（三）——优化</a></div>
+      
+    </li>
+  
+    <li class="popular-posts-item">
+      
+      
       <div class="popular-posts-title"><a href="/利用Hexo-Next搭建个人博客（一）-初始化demo/" rel="bookmark">利用Hexo+Next搭建个人博客（一）--初始化demo</a></div>
       
     </li>
@@ -526,7 +533,7 @@
     <li class="popular-posts-item">
       
       
-      <div class="popular-posts-title"><a href="/利用Hexo-Next搭建个人博客（三）-优化/" rel="bookmark">利用Hexo+Next搭建个人博客（三）——优化</a></div>
+      <div class="popular-posts-title"><a href="/利用Hexo-Next搭建个人博客——自定义样式/" rel="bookmark">利用Hexo-Next搭建个人博客——自定义样式</a></div>
       
     </li>
   
@@ -651,7 +658,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -748,14 +755,14 @@
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">46k</span>
+    <span title="站点总字数">51k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">42 分钟</span>
+    <span title="站点阅读时长">46 分钟</span>
 </div>
 
 <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
