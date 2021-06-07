@@ -1182,7 +1182,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff2937;
+  background: #ffff8f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2644,6 +2644,9 @@ pre {
 }
 .post-toc .nav .active > a {
   border-bottom-color: #222;
+  color: #222;
+}
+.post-toc .nav .active-current > a:hover {
   color: #222;
 }
 .site-author-image {
