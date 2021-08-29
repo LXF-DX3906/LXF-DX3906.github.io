@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.lvxuefei.top/about/index.html</loc>
+    
+    <lastmod>2021-08-29T02:25:42.224Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.lvxuefei.top/%E9%85%8D%E7%BD%AEESLint-Prettier-Husky-Vue-TypeScript/</loc>
     
     <lastmod>2021-08-29T02:00:31.025Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>https://www.lvxuefei.top/%E5%88%A9%E7%94%A8ETL%E5%B7%A5%E5%85%B7Kettle%EF%BC%88Pentaho-Data-Integration%EF%BC%89%E5%B0%86csv%E6%96%87%E4%BB%B6%E5%AF%BC%E5%85%A5sql-server%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     
     <lastmod>2019-10-22T15:42:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.lvxuefei.top/about/index.html</loc>
-    
-    <lastmod>2019-10-17T05:45:28.000Z</lastmod>
     
   </url>
   
