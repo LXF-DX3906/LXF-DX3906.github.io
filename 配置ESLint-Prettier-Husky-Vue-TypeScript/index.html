@@ -68,7 +68,7 @@
 <meta property="og:site_name" content="槐雪">
 <meta property="og:description" content="统一项目的代码格式规范对于多人协同开发，项目可读性与维护是十分重要的。前几天为实习公司的TypeScript+Vue项目配置了ESLint+Prettier+Husky，规范代码风格。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-08-29T01:56:14.779Z">
+<meta property="og:updated_time" content="2021-08-29T02:00:31.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置ESLint + Prettier + Husky(Vue+TypeScript)">
 <meta name="twitter:description" content="统一项目的代码格式规范对于多人协同开发，项目可读性与维护是十分重要的。前几天为实习公司的TypeScript+Vue项目配置了ESLint+Prettier+Husky，规范代码风格。">
@@ -311,7 +311,7 @@
                 
               
 
-              <time title="创建时间：2021-08-29 09:49:00 / 修改时间：09:56:14" itemprop="dateCreated datePublished" datetime="2021-08-29T09:49:00+08:00">2021-08-29</time>
+              <time title="创建时间：2021-08-29 09:49:00 / 修改时间：10:00:31" itemprop="dateCreated datePublished" datetime="2021-08-29T09:49:00+08:00">2021-08-29</time>
             </span>
           
             
@@ -402,7 +402,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. npm</span><br><span class="line">npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin</span><br><span class="line">2. yarn</span><br><span class="line">yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --dev -W</span><br></pre></td></tr></table></figure>
 
-<p>项目根目录下新建<code>.eslintrc.js</code>文件，配置<code>ESLint</code>规则</p>
+<p>项目根目录下新建<code>.eslintrc.js</code>文件，配置<code>ESLint</code>规则:</p>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  root: <span class="literal">true</span>,</span><br><span class="line">  env: &#123;</span><br><span class="line">    browser: <span class="literal">true</span>,</span><br><span class="line">    node: <span class="literal">true</span>,</span><br><span class="line">    es6: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  parser: <span class="string">'@typescript-eslint/parser'</span>, <span class="comment">// .ts 文件解析器，帮助ESLint解析typescript文件</span></span><br><span class="line">  plugins: [<span class="string">'@typescript-eslint'</span>],</span><br><span class="line">  extends: [</span><br><span class="line">    <span class="string">'eslint:recommended'</span>,  <span class="comment">// ESLint官方预定义规则集</span></span><br><span class="line">    <span class="string">'plugin:@typescript-eslint/recommended'</span>,  <span class="comment">// TypeScript规则集</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// 自定义规则，配置后会覆盖extends中已有的规则，官方规则配置手册: https://eslint.bootcss.com/docs/rules/</span></span><br><span class="line">  rules: &#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>项目根目录下新建<code>.eslintignore</code>文件，配置不需要ESlint检查的文件</p>
