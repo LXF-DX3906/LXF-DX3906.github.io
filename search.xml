@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>配置ESLint + Prettier + Husky(Vue+TypeScript)</title>
+    <title>📐配置ESLint + Prettier + Husky(Vue+TypeScript)</title>
     <url>/%E9%85%8D%E7%BD%AEESLint-Prettier-Husky-Vue-TypeScript/</url>
     <content><![CDATA[<p>统一项目的代码格式规范对于多人协同开发，项目可读性与维护是十分重要的。前几天为实习公司的<code>TypeScript</code>+<code>Vue</code>项目配置了<code>ESLint</code>+<code>Prettier</code>+<code>Husky</code>，规范代码风格。</p>
 <a id="more"></a>
