@@ -6,9 +6,6 @@
     <content><![CDATA[<p>导入一幅128X128的8bit灰度图像，在ARM 处理器上编程，使图像顺时针旋转45度，并导出图像。</p>
 <a id="more"></a>
 
-
-
-<p>[TOC]</p>
 <p><strong>开发环境：</strong></p>
 <blockquote>
 <p>操作系统：macOS BigSur v11.6</p>
