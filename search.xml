@@ -3,9 +3,7 @@
   <entry>
     <title>使用ARM处理器顺时针旋转45度灰度图像</title>
     <url>/%E4%BD%BF%E7%94%A8ARM-%E5%A4%84%E7%90%86%E5%99%A8%E9%A1%BA%E6%97%B6%E9%92%88%E6%97%8B%E8%BD%AC45%E5%BA%A6%E7%81%B0%E5%BA%A6%E5%9B%BE%E5%83%8F/</url>
-    <content><![CDATA[<center><font size="6"><b>使用ARM 处理器顺时针旋转45度灰度图像</b></font></center>
-
-<p>导入一幅128X128的8bit灰度图像，在ARM 处理器上编程，使图像顺时针旋转45度，并导出图像。</p>
+    <content><![CDATA[<p>导入一幅128X128的8bit灰度图像，在ARM 处理器上编程，使图像顺时针旋转45度，并导出图像。</p>
 <a id="more"></a>
 
 
