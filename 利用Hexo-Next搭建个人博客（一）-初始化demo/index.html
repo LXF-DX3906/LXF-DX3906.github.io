@@ -413,7 +413,6 @@
       
         <p>之前第一次搭博客花了两天左右，网上搜各种教程，但是各种教程对应的版本较为混乱，导致最后博客出现了一些小bug，虽然不影响使用，但是强迫症犯了X﹏X，就准备再搭一个然后把之前的博文迁移过去，写下这个系列博客以做记录吧~</p>
 <a id="more"></a>
-
 <h2 id="0-前提准备："><a href="#0-前提准备：" class="headerlink" title="0.前提准备："></a>0.前提准备：</h2><p>▣一个GitHub账号</p>
 <p>▣安装Git，详情可以看<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">廖雪峰老师的git教程</a></p>
 <p>▣安装Node.js<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">https://nodejs.org/en/download/</a></p>
@@ -421,14 +420,11 @@
 <h2 id="1-安装Hexo"><a href="#1-安装Hexo" class="headerlink" title="1.安装Hexo"></a>1.安装Hexo</h2><p>新建博客文件夹，命名为MyBlog1.1</p>
 <p>cmd打开命令行控制器，cd到MyBlog1.1文件夹下，输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install i -g hexo</span><br></pre></td></tr></table></figure>
-
 <p>确认是否安装成功：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-
 <p><img alt="1571106524090" data-src="//www.lvxuefei.top/利用Hexo-Next搭建个人博客（一）-初始化demo/1571106524090.png"></p>
 <h2 id="2-初始化博客"><a href="#2-初始化博客" class="headerlink" title="2.初始化博客"></a>2.初始化博客</h2><p>初始化博客：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-
 <p>成功后结果如下：</p>
 <p><img alt="1571106712512" data-src="//www.lvxuefei.top/利用Hexo-Next搭建个人博客（一）-初始化demo/1571106712512.png"></p>
 <p>▣简单解释各文件夹的作用</p>
@@ -440,7 +436,6 @@
 <p><code>package.json</code>：项目所需模块项目的配置信息</p>
 <p>▣到这一步，你已经可以有点小小的成就感回馈了，在博客目录下输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-
 <p>在浏览器中打开<a href="http://localhost:4000，你可以看到以下界面，这是Hexo的默认界面，想要更好看就要为它配置主题了，关于主题配置会在下面写到。" target="_blank" rel="noopener">http://localhost:4000，你可以看到以下界面，这是Hexo的默认界面，想要更好看就要为它配置主题了，关于主题配置会在下面写到。</a></p>
 <p><img alt="1571107080136" data-src="//www.lvxuefei.top/利用Hexo-Next搭建个人博客（一）-初始化demo/1571107080136.png"></p>
 <p><code>Ctr+C</code>关闭服务</p>
@@ -455,25 +450,24 @@
 <li><p>如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件。如果有，可以直接跳至下一小节“修改配置以关联github”</p>
 </li>
 <li><p>如果已经有ssh密钥，想要重新生成ssh密钥，需要清理原有ssh密钥：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir key_backup</span><br><span class="line">cp id_rsa* key_backup</span><br><span class="line">rm id_rsa*</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir key_backup</span><br><span class="line">cp id_rsa* key_backup</span><br><span class="line">rm id_rsa*</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>如果没有，打开命令行，输入命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa –C “youremail@example.com”</span><br></pre></td></tr></table></figure>
-
 <p>此处的邮箱地址为你自己的邮箱地址。一路Enter过来就好，得到信息：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/user/.ssh/id_rsa.pub.</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/user/.ssh/id_rsa.pub.</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>找到该文件，打开，复制里面的所有内容，然后进入Sign in to GitHub：<a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a></p>
 <p>New SSH key —&gt;Title：blog —&gt; Key：输入刚才复制的—&gt; Add SSH key</p>
 <h3 id="3-3修改配置以关联github"><a href="#3-3修改配置以关联github" class="headerlink" title="3.3修改配置以关联github"></a>3.3修改配置以关联github</h3><p>打开MyBlog1.1文件夹，打开博客配置文件<code>_config.yml</code>,修改一些基础配置（<strong>记得冒号后必须有空格，不然配置不生效！</strong>）</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">    repo:</span> <span class="attr">https://github.com/YourgithubName/YourgithubName.github.io.git</span></span><br><span class="line"><span class="attr">    branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="3-4最后一步，上传到Github"><a href="#3-4最后一步，上传到Github" class="headerlink" title="3.4最后一步，上传到Github"></a>3.4最后一步，上传到Github</h3><p>上传到Github</p>
 <ul>
 <li>需要先安装Hexo上传仓库的工具，执行<code>npm install hexo-deployer-git --save</code>，这样你写好的文章才能部署到github服务器。</li>
 <li>执行命令（建议每次都这样做，先清除、再编译上传）</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>在浏览器输入<code>http://yourgithubname.github.io</code>，这样你就可以看到自己的在线博客了~</li>
 </ul>
@@ -944,6 +938,8 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
+
+  
 
   
 
