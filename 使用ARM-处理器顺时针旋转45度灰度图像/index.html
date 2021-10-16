@@ -69,7 +69,7 @@
 <meta property="og:description" content="导入一幅128X128的8bit灰度图像，在ARM 处理器上编程，使图像顺时针旋转45度，并导出图像。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.lvxuefei.top/使用ARM-处理器顺时针旋转45度灰度图像/image-20211014200043879.png">
-<meta property="og:updated_time" content="2021-10-15T07:14:23.146Z">
+<meta property="og:updated_time" content="2021-10-16T03:30:38.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用ARM处理器顺时针旋转45度灰度图像">
 <meta name="twitter:description" content="导入一幅128X128的8bit灰度图像，在ARM 处理器上编程，使图像顺时针旋转45度，并导出图像。">
@@ -313,11 +313,19 @@
                 
               
 
-              <time title="创建时间：2021-10-15 14:30:28 / 修改时间：15:14:23" itemprop="dateCreated datePublished" datetime="2021-10-15T14:30:28+08:00">2021-10-15</time>
+              <time title="创建时间：2021-10-15 14:30:28" itemprop="dateCreated datePublished" datetime="2021-10-15T14:30:28+08:00">2021-10-15</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-16 11:30:38" itemprop="dateModified" datetime="2021-10-16T11:30:38+08:00">2021-10-16</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -441,7 +449,7 @@
 <h3 id="读取资源路径问题"><a href="#读取资源路径问题" class="headerlink" title="读取资源路径问题"></a>读取资源路径问题</h3><p>在segger项目中，与C项目不同的是，使用<code>./</code>所定位的文件位置并不是<code>main.c</code>文件所在的目录，而是整个项目的根目录，在读取图片时需要注意路径。</p>
 <p>如下图：<code>./</code>并不是定位到Source文件夹中，而是整个<code>Executable_1</code>的根目录中。</p>
 <p><img alt="截屏2021-10-14 23.02.40" data-src="//www.lvxuefei.top/使用ARM-处理器顺时针旋转45度灰度图像/截屏2021-10-14 23.02.40.png"></p>
-<h3 id="printf速度限制程序执行速度"><a href="#printf速度限制程序执行速度" class="headerlink" title="printf速度限制程序执行速度"></a><code>printf</code>速度限制程序执行速度</h3><p>在最初程序中，为了观测<code>fread</code>读入的图像数据，会将每一个像素的灰度值输出，在PC端测试时，执行速度很快，但在ARM9模拟器上时，<code>printf</code>速度会明心啊限制程序的执行速度，因此将<code>printf</code>语句注释不执行。</p>
+<h3 id="printf速度限制程序执行速度"><a href="#printf速度限制程序执行速度" class="headerlink" title="printf速度限制程序执行速度"></a><code>printf</code>速度限制程序执行速度</h3><p>在最初程序中，为了观测<code>fread</code>读入的图像数据，会将每一个像素的灰度值输出，在PC端测试时，执行速度很快，但在ARM9模拟器上时，<code>printf</code>速度会明显限制程序的执行速度，因此将<code>printf</code>语句注释不执行。</p>
 <h3 id="逐字节读取图像数据在项目中引发程序异常"><a href="#逐字节读取图像数据在项目中引发程序异常" class="headerlink" title="逐字节读取图像数据在项目中引发程序异常"></a>逐字节读取图像数据在项目中引发程序异常</h3><p>在从文件流中逐字节读取图像数据时，读取到一半会出现错误<code>Unknown function at 0x00000004</code>。</p>
 <p><img alt="截屏2021-10-14 21.58.02" data-src="//www.lvxuefei.top/使用ARM-处理器顺时针旋转45度灰度图像/截屏2021-10-14 21.58.02.png"></p>
 <p>怀疑是ARM9处理器在反复打开文件流读取数据时会因性能产生异常，将逐字节读取改为一次性读取所有数据，错误消失。</p>
