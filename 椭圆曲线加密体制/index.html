@@ -69,7 +69,7 @@
 <meta property="og:description" content="简介椭圆曲线加密体制（ECC，Ellipse Curve Cryptography）与传统的基于大素数因子分解的困难性的加密方法不同，其通过椭圆曲线方程式的性质产生密钥。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.lvxuefei.top/椭圆曲线加密体制/image-20211022105209770.png">
-<meta property="og:updated_time" content="2021-10-23T11:17:50.887Z">
+<meta property="og:updated_time" content="2021-10-23T11:22:58.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="椭圆曲线加密体制">
 <meta name="twitter:description" content="简介椭圆曲线加密体制（ECC，Ellipse Curve Cryptography）与传统的基于大素数因子分解的困难性的加密方法不同，其通过椭圆曲线方程式的性质产生密钥。">
@@ -313,7 +313,7 @@
                 
               
 
-              <time title="创建时间：2021-10-23 18:18:06 / 修改时间：19:17:50" itemprop="dateCreated datePublished" datetime="2021-10-23T18:18:06+08:00">2021-10-23</time>
+              <time title="创建时间：2021-10-23 18:18:06 / 修改时间：19:22:58" itemprop="dateCreated datePublished" datetime="2021-10-23T18:18:06+08:00">2021-10-23</time>
             </span>
           
             
@@ -371,7 +371,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>4.5k</span>
+              <span>4.4k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -489,7 +489,7 @@ y^2 = x^3 + a_4x + a_6 \\
 </ul>
 <p>$F_p$<strong>上的椭圆曲线：</strong></p>
 <blockquote>
-<p>Hass定理：令$F_p$表示<strong>p</strong>个元素的有限域，用$E(F_p)$表示定义在$F_p$上的一个椭圆曲线E，$E(F_p)$上点的个数用$^#E(F_p)$表示，则</p>
+<p>Hass定理：令$F_p$表示<strong>p</strong>个元素的有限域，用$E(F_p)$表示定义在$F_p$上的一个椭圆曲线E，$E(F_p)$上点的个数用$\ ^#E(F_p)$表示，则</p>
 <script type="math/tex; mode=display">
 \vert\ ^\#E(F_p)-p-1\ \vert \le 2p^{\frac{1}{2}}</script></blockquote>
 <p>令$p&gt;3,\ a,b \in F_p$，满足$4a^3+27b^2\ne 0$，椭圆曲线方程为$y^2 = x^3 + ax + b$，它的所有解$(x,y)$，$(x\in F_p，y\in F_p)$，连同“无穷远点” $\theta$  组成的集合记为$E(F_p)$，由Hass定理知:</p>
@@ -515,7 +515,7 @@ y_3 \equiv \alpha(x_1-x_3)-y_1(mod \ p) \\
 </blockquote>
 <p>在实际椭圆曲线加密体制中，具体过程如下：</p>
 <p>选取素域$F_p$，在$E(F_p)$中选取一个阶很大的点，如选取点$P=(x,y)$，它的周期为一个大整数n，记$\prod(P) = n$</p>
-<font color="grey">*注：在这个密码体制中，具体的曲线方程以及点P都是公开信息*</font>
+<font color="grey">注：在这个密码体制中，具体的曲线方程以及点P都是公开信息</font>
 
 <h2 id="密钥的生成"><a href="#密钥的生成" class="headerlink" title="密钥的生成"></a>密钥的生成</h2><p>Bob(使用者)执行了下列计算：</p>
 <ol>
@@ -539,13 +539,13 @@ y_3 \equiv \alpha(x_1-x_3)-y_1(mod \ p) \\
 <li><p>计算$C=mx_2$</p>
 </li>
 <li><p>传送加密数据$(x_1,y_1,C)$给Bob</p>
-<font color="grey">*注意，此时$(x_2,y_2)$这个点只有用d或者k联立$(x_1,y_1)$能解出来，也就是说，除了Alice和Bob，其他人都无法解得$(x_2,y_2)$*</font>
+<font color="grey">注意，此时$(x_2,y_2)$这个点只有用d或者k联立$(x_1,y_1)$能解出来，也就是说，除了Alice和Bob，其他人都无法解得$(x_2,y_2)$</font>
 
 </li>
 </ol>
-<h2 id="Bob的解密过程"><a href="#Bob的解密过程" class="headerlink" title="Bob的解密过程"></a>Bob的解密过程</h2><p>Bob收到Alice的密文$\left(x<em>{1}, y</em>{1}, C\right)$后，执行</p>
+<h2 id="Bob的解密过程"><a href="#Bob的解密过程" class="headerlink" title="Bob的解密过程"></a>Bob的解密过程</h2><p>Bob收到Alice的密文$(x_1, y_1, C)$后，执行</p>
 <ol>
-<li>使用私钥k，计算点$\left(x<em>{2}, y</em>{2}\right)=k\left(x<em>{1}, y</em>{1}\right)$，再根据 $x_2x_2^{-1}\ mod\ p = 1$ 计算出$F_p$中的$x_2^{-1}$</li>
+<li>使用私钥k，计算点$(x_2, y_2)=k(x_1, y_1)$，再根据 $x_2x_2^{-1}\ mod\ p = 1$ 计算出$F_p$中的$x_2^{-1}$</li>
 <li>通过计算$m=Cx_2^{-1}$，恢复出明文数据m。</li>
 </ol>
 <p><strong>参考文章：</strong></p>
