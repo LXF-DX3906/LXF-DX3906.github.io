@@ -59,7 +59,7 @@ y^2 = x^3 + a_4x + a_6 \\
 <p>另外，我们还需要一个无穷处的点（point at infinity/ideal point）作为曲线的一部分，从现在开始，我们将用$\theta$这个符号表示无穷处的点。如果我们将无穷处的点也考虑进来的话，那么椭圆曲线的表达式精炼为：</p>
 <script type="math/tex; mode=display">
 \{(x,y)\in\mathbb{R}^2\lvert y^2=x^3+ax+b, 4a^3+27b^2\ne 0\}</script><h1 id="定义椭圆曲线上的-运算"><a href="#定义椭圆曲线上的-运算" class="headerlink" title="定义椭圆曲线上的$+$运算"></a>定义椭圆曲线上的$+$运算</h1><p>最初的简介里说，ECC的本质是解决知道从椭圆曲线上的一个点移动到该曲线上的另一个点需要多少步的问题。那么，该如何设计这种移动的方法呢？</p>
-<p><strong>两相异点加运算</strong>：任取椭圆曲线上两点P、Q（若P、Q两点重合，则作P点的切线），作直线教育椭圆曲线的另一点R’，过R’作y轴的平行线交于R，定义$P+Q=R$。这样，加法的和也在椭圆曲线上，并同样具备加法的交换律、结合律。</p>
+<p><strong>两相异点加运算</strong>：任取椭圆曲线上两点P、Q（若P、Q两点重合，则作P点的切线），作直线交于椭圆曲线的另一点R’，过R’作y轴的平行线交于R，定义$P+Q=R$。这样，加法的和也在椭圆曲线上，并同样具备加法的交换律、结合律。</p>
 <p><img alt="image-20211022105209779" style="zoom:20%;" data-src="//www.lvxuefei.top/椭圆曲线加密体制/image-20211022105209779.png"></p>
 <p><strong>倍点运算</strong>：过点P的切线与椭圆曲线相交于R’，过R’作y轴的平行线交于R，点P的倍点$2P=R$</p>
 <p><img alt="image-20211022184735645" style="zoom:30%;" data-src="//www.lvxuefei.top/椭圆曲线加密体制/image-20211022184735645.png"></p>
