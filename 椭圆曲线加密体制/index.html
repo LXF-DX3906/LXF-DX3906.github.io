@@ -69,7 +69,7 @@
 <meta property="og:description" content="简介椭圆曲线加密体制（ECC，Ellipse Curve Cryptography）与传统的基于大素数因子分解的困难性的加密方法不同，其通过椭圆曲线方程式的性质产生密钥。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.lvxuefei.top/椭圆曲线加密体制/image-20211022105209770.png">
-<meta property="og:updated_time" content="2021-10-23T10:52:26.652Z">
+<meta property="og:updated_time" content="2021-10-23T11:12:05.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="椭圆曲线加密体制">
 <meta name="twitter:description" content="简介椭圆曲线加密体制（ECC，Ellipse Curve Cryptography）与传统的基于大素数因子分解的困难性的加密方法不同，其通过椭圆曲线方程式的性质产生密钥。">
@@ -313,7 +313,7 @@
                 
               
 
-              <time title="创建时间：2021-10-23 18:18:06 / 修改时间：18:52:26" itemprop="dateCreated datePublished" datetime="2021-10-23T18:18:06+08:00">2021-10-23</time>
+              <time title="创建时间：2021-10-23 18:18:06 / 修改时间：19:12:05" itemprop="dateCreated datePublished" datetime="2021-10-23T18:18:06+08:00">2021-10-23</time>
             </span>
           
             
@@ -545,7 +545,7 @@ y_3 \equiv \alpha(x_1-x_3)-y_1(mod \ p) \\
 </ol>
 <h2 id="Bob的解密过程"><a href="#Bob的解密过程" class="headerlink" title="Bob的解密过程"></a>Bob的解密过程</h2><p>Bob收到Alice的密文$\left(x<em>{1}, y</em>{1}, C\right)$后，执行</p>
 <ol>
-<li>使用私钥k，计算点$\left(x<em>{2}, y</em>{2}\right)=k\left(x<em>{1}, y</em>{1}\right)$，再根据 $x_2+x_2^{-1} = p$ 计算出$F_p$中的$x_2^{-1}$</li>
+<li>使用私钥k，计算点$\left(x<em>{2}, y</em>{2}\right)=k\left(x<em>{1}, y</em>{1}\right)$，再根据 $x_2x_2^{-1}\ mod\ p = 1$ 计算出$F_p$中的$x_2^{-1}$</li>
 <li>通过计算$m=Cx_2^{-1}$，恢复出明文数据m。</li>
 </ol>
 <p><strong>参考文章：</strong></p>
