@@ -151,6 +151,14 @@ y_3 \equiv \alpha(x_1-x_3)-y_1(mod \ p) \\
 <li>使用私钥k，计算点$\left(x<em>{2}, y</em>{2}\right)=k\left(x<em>{1}, y</em>{1}\right)$，再根据 $x_2+x_2^{-1} = p$ 计算出$F_p$中的$x_2^{-1}$</li>
 <li>通过计算$m=Cx_2^{-1}$，恢复出明文数据m。</li>
 </ol>
+<p><strong>参考文章：</strong></p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/Kalafinaian/p/7392505.html" target="_blank" rel="noopener">ECC椭圆曲线详解(有具体实例)</a></p>
+<p><a href="https://devcentral.f5.com/s/articles/real-cryptography-has-curves-making-the-case-for-ecc-20832" target="_blank" rel="noopener">Real Cryptography Has Curves: Making The Case For ECC</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/36326221" target="_blank" rel="noopener">ECC椭圆曲线加密算法：介绍</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%B0%84%E5%BD%B1%E5%B9%B3%E9%9D%A2" target="_blank" rel="noopener">射影平面</a></p>
+<p><a href="http://www.global-sci.org/v1/mc/issues/4/no3/freepdf/70s.pdf" target="_blank" rel="noopener">浅说椭圆曲线，陆俊</a></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>technology</category>
