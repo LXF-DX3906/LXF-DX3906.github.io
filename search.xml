@@ -144,7 +144,7 @@ y_3 \equiv \alpha(x_1-x_3)-y_1(mod \ p) \\
 
 </li>
 </ol>
-<h2 id="Bod的解密过程"><a href="#Bod的解密过程" class="headerlink" title="Bod的解密过程"></a>Bod的解密过程</h2><p>Bob收到Alice的密文$\left(x<em>{1}, y</em>{1}, C\right)$后，执行</p>
+<h2 id="Bob的解密过程"><a href="#Bob的解密过程" class="headerlink" title="Bob的解密过程"></a>Bob的解密过程</h2><p>Bob收到Alice的密文$\left(x<em>{1}, y</em>{1}, C\right)$后，执行</p>
 <ol>
 <li>使用私钥k，计算点$\left(x<em>{2}, y</em>{2}\right)=k\left(x<em>{1}, y</em>{1}\right)$，再根据 $x_2+x_2^{-1} = p$ 计算出$F_p$中的$x_2^{-1}$</li>
 <li>通过计算$m=Cx_2^{-1}$，恢复出明文数据m。</li>
