@@ -90,7 +90,7 @@ y^2 = x^3 + a_4x + a_6 \\
 </ul>
 <p>$F_p$<strong>上的椭圆曲线：</strong></p>
 <blockquote>
-<p>Hass定理：令$F_p$表示<strong>p</strong>个元素的有限域，用$E(F_p)$表示定义在$F_p$上的一个椭圆曲线E，$E(F_p)$上点的个数用$^#E(F_p)$表示，则</p>
+<p>Hass定理：令$F_p$表示<strong>p</strong>个元素的有限域，用$E(F_p)$表示定义在$F_p$上的一个椭圆曲线E，$E(F_p)$上点的个数用${^#E(F_p)}$表示，则</p>
 <script type="math/tex; mode=display">
 \vert\ ^\#E(F_p)-p-1\ \vert \le 2p^{\frac{1}{2}}</script></blockquote>
 <p>令$p&gt;3,\ a,b \in F_p$，满足$4a^3+27b^2\ne 0$，椭圆曲线方程为$y^2 = x^3 + ax + b$，它的所有解$(x,y)$，$(x\in F_p，y\in F_p)$，连同“无穷远点” $\theta$  组成的集合记为$E(F_p)$，由Hass定理知:</p>
