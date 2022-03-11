@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>测试加密文章</title>
-    <url>/%E6%B5%8B%E8%AF%95%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，您输入的密码错误，请检查后重新输入。" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">
-  <script id="hbeData" type="hbeData" data-hmacdigest="d5b3878490a8b8af5f35c2d16a5658dd5e19800e95f001392e6aec8b43f7baa8">36be5da7049a24202d9ef2e366dfc8c12a47ee1d1f2ce7f0e7826f1d6d60d9893373f90b7191ffb9948f6abc1862ad1823a3e51e455ce1608c3ca4ebd3e80532</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">当前文章暂不对外可见，请输入密码后查看！</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <tags>
-        <tag>private</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>椭圆曲线加密体制</title>
     <url>/%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E5%8A%A0%E5%AF%86%E4%BD%93%E5%88%B6/</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>椭圆曲线加密体制（ECC，Ellipse Curve Cryptography）与传统的基于大素数因子分解的困难性的加密方法不同，其通过椭圆曲线方程式的性质产生密钥。</p><a id="more"></a>
