@@ -1179,7 +1179,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #8c11a3;
+  background: #ff405d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2693,7 +2693,7 @@ pre {
 @media screen and (max-width: 991px) {
   .sidebar {
     background: #fff;
-    box-shadow: -1px 0px 10px 0px #000;
+    box-shadow: -1px 0px 10px 0px rgba(0,0,0,0.29);
   }
 }
 .sidebar-nav li {
