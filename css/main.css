@@ -1179,7 +1179,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0efff1;
+  background: #621471;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2673,7 +2673,7 @@ pre {
 .menu .menu-item span.exturl:hover {
   background: #fff;
   color: #000;
-  font-size: 1.35em;
+  font-size: 1.25em;
 }
 .logo-line-before i,
 .logo-line-after i {
