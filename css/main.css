@@ -1179,7 +1179,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #d2f1ec;
+  background: #b3cc4a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2665,14 +2665,14 @@ pre {
 }
 .menu-item a,
 .menu-item span.exturl {
-  font-size: 1.025em;
+  font-size: 1.5em;
 }
 .menu-item-active a,
 .menu .menu-item a:hover,
 .menu .menu-item span.exturl:hover {
   background: #fff;
   color: #000;
-  font-size: 1.125em;
+  font-size: 1.75em;
 }
 .logo-line-before i,
 .logo-line-after i {
@@ -2805,6 +2805,15 @@ pre {
 .post-button {
   text-align: center;
 }
+.post-button .btn {
+  font-size: 1em;
+}
 .highlight-wrap {
   font-size: 0.875em;
+}
+.code {
+  font-size: 0.875em;
+}
+.p {
+  font-size: 1em;
 }
