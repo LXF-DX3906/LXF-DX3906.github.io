@@ -71,7 +71,7 @@
 <p><img alt="HSL拾色器" style="zoom:33%;" data-src="//www.lvxuefei.top/🔴🟢🔵色彩基本原理/Untitled%204.png"></p>
 <p><em>HSL拾色器</em></p>
 <p>换句话说，对于HSL的S，我们会说“这个颜色鲜艳不鲜艳”，而对HSV的S则会说“这个颜色纯不纯”。而对于L和B，对L的形容是“这个光白不白”，而对B的形容是“这个光亮不亮”。</p>
-<p>换句话说，<strong>HSL的S（饱和度）定义更符合直觉</strong>，而<strong>HSV的V（明度）定义更符合直觉</strong>。这两个模型都是为了<strong>在颜色选择方面方便人机交互</strong>设计的，它们的优劣也就在于具体使用者的理解倾向，或者软件使用场景对具体参数的要求上。</p>
+<p><strong>HSL的S（饱和度）定义更符合直觉</strong>，而<strong>HSV的V（明度）定义更符合直觉</strong>。这两个模型都是为了<strong>在颜色选择方面方便人机交互</strong>设计的，它们的优劣也就在于具体使用者的理解倾向，或者软件使用场景对具体参数的要求上。</p>
 <h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><p><a href="https://zhuanlan.zhihu.com/p/61616273" target="_blank" rel="noopener">关于<em>调色</em>你必须要知道的知识</a></p>
 <p><a href="http://www.yunxyx.com/articledetails/1472" target="_blank" rel="noopener">谁才是真正的三原色</a></p>
 <p><a href="https://www.zhangxiaochun.com/color-space-1/" target="_blank" rel="noopener">色彩空间（一）：色彩空间基础</a></p>
