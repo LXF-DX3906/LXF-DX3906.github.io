@@ -443,7 +443,7 @@
 <li>用“一条平行线也不能引”作为公设，引出黎曼几何（椭圆几何）</li>
 </ol>
 <p>射影几何也是直觉上不合适，但逻辑上毫无矛盾的一种几何体系，其最初是由透视图发展出来的，后又由一些数学家逐步建立起了一套完整严谨的射影几何体系。</p>
-<p><img alt="440px-Railroad-Tracks-Perspective" data-src="//www.lvxuefei.top/椭圆曲线加密体制/440px-Railroad-Tracks-Perspective.jpg"></p>
+<p><img alt="440px-Railroad-Tracks-Perspective" data-src="椭圆曲线加密体制/440px-Railroad-Tracks-Perspective.jpg"></p>
 <center><font size="2.8" color="grey">两条平行线似乎相交于“无穷远处”的消失点。在射影平面里，这是真的。</font></center>
 
 <p>在射影几何中，平行线交于无穷远点$P∞$，使得平面上任意两条直线都存在唯一交点：</p>
@@ -470,19 +470,19 @@ y_0^2+𝑎_1x_0y_0+𝑎_3y_0 =x_0^3 +𝑎_2x_0^2+𝑎_4x_0 +𝑎_6</script><p>�
 <script type="math/tex; mode=display">
 y^2 = x^3 + a_4x + a_6 \\
 \Delta = -16(4a_4^3 + 27 a_6^2) \ne 0(该条件可以保证曲线处处是非奇异（光滑）的)</script><p>为了描述方便，写成$y^2 = x^3 + ax + b$的形式</p>
-<p><img alt="v2-1d205ac7a84a53685519cdf801a32abd_b" data-src="//www.lvxuefei.top/椭圆曲线加密体制/v2-1d205ac7a84a53685519cdf801a32abd_b.png"></p>
+<p><img alt="v2-1d205ac7a84a53685519cdf801a32abd_b" data-src="椭圆曲线加密体制/v2-1d205ac7a84a53685519cdf801a32abd_b.png"></p>
 <center><font size="2.8" color="grey">不同的椭圆曲线对应不同的形状</font></center>
 
-<p><img alt="v2-06eb5f52f137a038bf2c446a411c4324_b" data-src="//www.lvxuefei.top/椭圆曲线加密体制/v2-06eb5f52f137a038bf2c446a411c4324_b.png"></p>
+<p><img alt="v2-06eb5f52f137a038bf2c446a411c4324_b" data-src="椭圆曲线加密体制/v2-06eb5f52f137a038bf2c446a411c4324_b.png"></p>
 <center><font size="2.8" color="grey">奇异(非光滑)点：它们都不是有效的椭圆曲线</font></center>
 
 <p>另外，我们还需要一个无穷处的点（point at infinity/ideal point）作为曲线的一部分，从现在开始，我们将用$\theta$这个符号表示无穷处的点。如果我们将无穷处的点也考虑进来的话，那么椭圆曲线的表达式精炼为：</p>
 <script type="math/tex; mode=display">
 \{(x,y)\in\mathbb{R}^2\lvert y^2=x^3+ax+b, 4a^3+27b^2\ne 0\}</script><h1 id="定义椭圆曲线上的-运算"><a href="#定义椭圆曲线上的-运算" class="headerlink" title="定义椭圆曲线上的$+$运算"></a>定义椭圆曲线上的$+$运算</h1><p>最初的简介里说，ECC的本质是解决知道从椭圆曲线上的一个点移动到该曲线上的另一个点需要多少步的问题。那么，该如何设计这种移动的方法呢？</p>
 <p><strong>两相异点加运算</strong>：任取椭圆曲线上两点P、Q（若P、Q两点重合，则作P点的切线），作直线交于椭圆曲线的另一点R’，过R’作y轴的平行线交于R，定义$P+Q=R$。这样，加法的和也在椭圆曲线上，并同样具备加法的交换律、结合律。</p>
-<p><img alt="image-20211022105209779" style="zoom:20%;" data-src="//www.lvxuefei.top/椭圆曲线加密体制/image-20211022105209779.png"></p>
+<p><img alt="image-20211022105209779" style="zoom:20%;" data-src="椭圆曲线加密体制/image-20211022105209779.png"></p>
 <p><strong>倍点运算</strong>：过点P的切线与椭圆曲线相交于R’，过R’作y轴的平行线交于R，点P的倍点$2P=R$</p>
-<p><img alt="image-20211022184735645" style="zoom:30%;" data-src="//www.lvxuefei.top/椭圆曲线加密体制/image-20211022184735645.png"></p>
+<p><img alt="image-20211022184735645" style="zoom:30%;" data-src="椭圆曲线加密体制/image-20211022184735645.png"></p>
 <p>由椭圆曲线上所有的点和定义的$+$运算可以构成一个阿贝尔群：</p>
 <ol>
 <li>群中的元素就是椭圆曲线上的点</li>
