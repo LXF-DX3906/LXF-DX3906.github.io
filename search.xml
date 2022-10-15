@@ -69,7 +69,7 @@
 <center>PhotoShop中HSB拾色器</center>
 
 <p>HSL模型比较难对应到现实中的物品，但可以直观的理解为，明度一定，饱和度越高时，颜色就越鲜艳，饱和度一定，明度越高时，颜色就越接近于白色（观感上更亮）。因此，使用HSL可以确保调整“鲜艳度”的时候，对亮度的影响不那么大。所以照片调色软件，主用HSL的居多，比如Adobe的Lightroom。</p>
-<p><img alt="HSL拾色器" style="zoom:33%;" data-src="//www.lvxuefei.top/🔴🟢🔵色彩基本原理/Untitled%204.png"></p>
+<p><img alt data-src="//www.lvxuefei.top/🔴🟢🔵色彩基本原理/Untitled%204.png"></p>
 <center>HSL拾色器</center>
 
 <p>换句话说，对于HSL的S，我们会说“这个颜色鲜艳不鲜艳”，而对HSV的S则会说“这个颜色纯不纯”。而对于L和B，对L的形容是“这个光白不白”，而对B的形容是“这个光亮不亮”。</p>
