@@ -1,13 +1,1 @@
-module.exports = function(obj) {
-  /* istanbul ignore if */
-  if (null === obj || "object" !== typeof obj) {
-    return obj;
-  }
-  var copy = obj.constructor();
-  for (var attr in obj) {
-    if (obj.hasOwnProperty(attr)) {
-      copy[attr] = obj[attr];
-    }
-  }
-  return copy;
-};
+module.exports=function(r){if(null===r||"object"!=typeof r)return r;var o,t=r.constructor();for(o in r)r.hasOwnProperty(o)&&(t[o]=r[o]);return t};
