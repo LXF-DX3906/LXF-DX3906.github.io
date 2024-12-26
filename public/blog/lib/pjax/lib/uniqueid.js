@@ -1,0 +1,1 @@
+module.exports=(()=>{var r=0;return function(){var e="pjax"+(new Date).getTime()+"_"+r;return r++,e}})();

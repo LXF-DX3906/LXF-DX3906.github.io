@@ -1,0 +1,1 @@
+module.exports=function(r){if(null===r||"object"!=typeof r)return r;var o,t=r.constructor();for(o in r)r.hasOwnProperty(o)&&(t[o]=r[o]);return t};
