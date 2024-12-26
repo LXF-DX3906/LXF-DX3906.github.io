@@ -1,0 +1,140 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 槐雪
+subtitle: 愿你所有快乐无需假装，愿你此生尽兴赤诚善良
+description: 我的生活本身已成了我的娱乐
+keywords:
+author: Monodrama
+language: zh-CN
+timezone: Asia/Shanghai
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://www.lvxuefei.top/
+root: /
+#permalink: :year/:month/:day/:title/
+permalink: :title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+  
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+  
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+
+# 搜索功能
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+# RSS功能
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+  
+## Themes: https://hexo.io/themes/
+theme: next
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: 
+    github: git@github.com:LXF-DX3906/LXF-DX3906.github.io.git,master
+    # hexo: root@101.132.155.49:/var/gitRepo/lxfBlog.git,master
+    # coding: git@git.coding.net:LXF-DX3906/LXF-DX3906.coding.me.git
+
+#添加看板娘
+# live2d:
+# enable: flase                            # 开启Live2D
+# scriptFrom: local                        # 插件来源
+# pluginRootPath: live2dw/                 # 插件根目录(相对路径)
+# pluginJsPath: lib/                       # 脚本文件路径(相对于插件根目录路径)
+# pluginModelPath: assets/                 # 模型文件路径(相对于插件根目录)
+# tagMode: false                           # 是否标签模式
+# debug: false                             # 是否开启调试模式
+# model:
+#  use: live2d-widget-model-hibiki        # 选择模型
+# display:
+#  position: left                        # 模型在页面上的位置
+#  width: 135                             # 模型宽度
+#  height: 375                            # 模型高度
+# mobile:
+#  show: true                             # 是否在手机端显示
+# react:
+#  opacity: 0.8                             # 设置模型透明度
+
+baidusitemap:
+  path: baidusitemap.xml
+sitemap:
+  path: sitemap.xml
+
+# Security
+# encrypt: # hexo-blog-encrypt
+#   silent: true
+#   theme: xray
+#   abstract: 这是一篇加密文章，需要密码才能继续阅读。
+#   message: 当前文章暂不对外可见，请输入密码后查看！
+#   tags:
+#   - {name: private, password: 990418Mytreasure%}
+#   wrong_pass_message: 抱歉，您输入的密码错误，请检查后重新输入。
+#   wrong_hash_message: 抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。
+
+# hexo-all-minifier https://github.com/chenzhutian/hexo-all-minifier
+all_minifier: true
+ 
