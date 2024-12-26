@@ -125,12 +125,12 @@ scheme: Mist
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -> archives).
 # External url should start with http:// or https://
 menu:
-  home: / || home
-  archives: /archives/ || archive
-  categories: /categories/ || th
-  tags: /tags/ || tags
-  links: /links/ || links
-  about: /about/ || user
+  home:
+  archives: archives/ || archive
+  categories: categories/ || th
+  tags: tags/ || tags
+  links: links/ || links
+  about: about/ || user
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
