@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=7.4.1" color="#222">
+  <link rel="alternate" href="/blog/atom.xml" title="槐雪" type="application/atom+xml">
+  <meta name="google-site-verification" content="gzchWZmg20F_sS5yKRpOn5wxPG76HT-NkrEkBRJHcuY">
+  <meta name="baidu-site-verification" content="OyEAxH7IEh">
+
+<link rel="stylesheet" href="/blog/css/main.css?v=7.4.1">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":true},
+    copycode: {"enable":true,"show_result":false,"style":"default"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"manual"},
+    fancybox: false,
+    mediumzoom: true,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="在学习设计模式中的Prototype Patterns时，了解到Java的根类Object提供了一个clone()方法（Object是所有类的父类，其一共提供了11个方法，具体详解可以看这篇文章），可以很容易实现Prototype Patterns。但clone()方法有浅克隆和深克隆两种，其中涉及到了java基本数据类型与其他数据类型的值与地址的问题。">
+<meta name="keywords" content="Java String地址与值,Java clone">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Java String地址与值的理解和Java Object的clone()方法">
+<meta property="og:url" content="https://www.lvxuefei.top/blog/关于Java-String地址与值的理解和Java-Object的clone-方法/index.html">
+<meta property="og:site_name" content="槐雪">
+<meta property="og:description" content="在学习设计模式中的Prototype Patterns时，了解到Java的根类Object提供了一个clone()方法（Object是所有类的父类，其一共提供了11个方法，具体详解可以看这篇文章），可以很容易实现Prototype Patterns。但clone()方法有浅克隆和深克隆两种，其中涉及到了java基本数据类型与其他数据类型的值与地址的问题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2025-04-01T12:30:54.802Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于Java String地址与值的理解和Java Object的clone()方法">
+<meta name="twitter:description" content="在学习设计模式中的Prototype Patterns时，了解到Java的根类Object提供了一个clone()方法（Object是所有类的父类，其一共提供了11个方法，具体详解可以看这篇文章），可以很容易实现Prototype Patterns。但clone()方法有浅克隆和深克隆两种，其中涉及到了java基本数据类型与其他数据类型的值与地址的问题。">
+  <link rel="canonical" href="https://www.lvxuefei.top/blog/关于Java-String地址与值的理解和Java-Object的clone-方法/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>关于Java String地址与值的理解和Java Object的clone()方法 | 槐雪</title>
+  
+
+
+  <script pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?132763299962c64107e4e63eab294fb1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+<!--	<a href="https://github.com/LXF-DX3906" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>-->
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">槐雪</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">愿你所有快乐无需假装，愿你此生尽兴赤诚善良</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-question-circle"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-links">
+      
+    
+
+    <a href="/blog/links/" rel="section"><i class="fa fa-fw fa-links"></i>友链</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.lvxuefei.top/blog/blog/关于Java-String地址与值的理解和Java-Object的clone-方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Monodrama">
+      <meta itemprop="description" content="我的生活本身已成了我的娱乐">
+      <meta itemprop="image" content="/blog/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="槐雪">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            关于Java String地址与值的理解和Java Object的clone()方法
+            
+
+          
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-27 11:50:42" itemprop="dateCreated datePublished" datetime="2019-10-27T11:50:42+08:00">2019-10-27</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-04-01 20:30:54" itemprop="dateModified" datetime="2025-04-01T20:30:54+08:00">2025-04-01</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/technology/" itemprop="url" rel="index">
+                    <span itemprop="name">technology</span>
+                  </a>
+                </span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/technology/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/关于Java-String地址与值的理解和Java-Object的clone-方法/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/关于Java-String地址与值的理解和Java-Object的clone-方法/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>6.9k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>6 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在学习<a href="http://c.biancheng.net/design_pattern/" target="_blank" rel="noopener">设计模式</a>中的Prototype Patterns时，了解到Java的根类Object提供了一个clone()方法（Object是所有类的父类，其一共提供了11个方法，具体详解可以看<a href="https://fangjian0423.github.io/2016/03/12/java-Object-method/" target="_blank" rel="noopener">这篇文章</a>），可以很容易实现Prototype Patterns。但clone()方法有浅克隆和深克隆两种，其中涉及到了java基本数据类型与其他数据类型的值与地址的问题。</p>
+<a id="more"></a>
+<p>&lt;/br&gt;</p>
+<h1 id="1-java的基本数据类型与引用数据类型"><a href="#1-java的基本数据类型与引用数据类型" class="headerlink" title="1. java的基本数据类型与引用数据类型"></a>1. java的基本数据类型与引用数据类型</h1><pre><code>                    ┏数值型━┳━整数型：byte、short、int、long
+
+       ┏基本数据类型━┫      ┗━浮点型：float、double
+
+       ┃            ┣字符型：char
+
+数据类型╋            ┗布尔型：boolean
+
+       ┃            ┏类（class）
+
+       ┗引用数据类型━╋接口（interface）
+
+                    ┗数组（array）
+</code></pre><p>Java中有两类数据类型：基本数据类型与引用数据类型，<strong>基本数据类型直接保存数据的值，而引用数据类型只保存指向存储其所表示的值的地址</strong>。以String与int为例，String是Java的一个类，属于引用数据类型，所以String其实相当于一个指针（当然指针只是借用C++里的说法，Java中是没有指针的），而int属于基本数据类型，其声明的变量直接存储值。</p>
+<p>&lt;/br&gt;</p>
+<h2 id="1-1简要说明"><a href="#1-1简要说明" class="headerlink" title="1.1简要说明"></a>1.1简要说明</h2><p>对于引用数据类型来说，当声明一个String类型的变量<code>str1</code>并为其赋字符串值<code>&quot;strvalue&quot;</code>时，会将该字符串值<code>&quot;strvalue&quot;</code>存储在字符串常量池中，如果有一个新的String类型的变量<code>str2</code>被声明并且同样为其赋值<code>&quot;strvalue&quot;</code>的话，<code>str1</code>与<code>str2</code>会指向同一个地址（即存储<code>“strvalue”</code>的物理空间），两者共用同一个物理空间。<code>str1</code>与<code>str2</code>的值其实是地址值。</p>
+<p>而对于基本数据类型来说，如果令<code>int num1 = 123</code>，<code>int num2 = 123</code>，<code>num1</code>和<code>num2</code>是不共用一个物理空间的。即<code>num1</code>和<code>num2</code>分别有各自的物理空间来存储<code>123</code>。</p>
+<p>&lt;/br&gt;</p>
+<h2 id="1-2-用代码说明"><a href="#1-2-用代码说明" class="headerlink" title="1.2 用代码说明"></a>1.2 用代码说明</h2><p><strong>首先要明白判断两字符串相等时String的<code>&quot;str1==str2&quot;</code>与<code>&quot;str1.equals(str2)&quot;</code>的区别</strong></p>
+<p><code>&quot;==&quot;</code>返回<code>true</code>时代表<code>str1</code>和<code>str2</code>指向同一个物理空间。</p>
+<p><code>equals</code>返回<code>true</code>时代表<code>str1</code>和`str2所指向的物理空间中存储的String值相等，并不需要两者同时指向一个物理空间，如下图：</p>
+<p><img alt="String1" data-src="/blog/关于Java-String地址与值的理解和Java-Object的clone-方法/String1.png"></p>
+<p><strong>再跟据以下代码说明String与int的不同：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//这种情况下str1与str2指向同一个物理空间，值也相同</span></span><br><span class="line">        String str1 = <span class="string">"strvalue"</span>;</span><br><span class="line">        String str2 = <span class="string">"strvalue"</span>;   <span class="comment">//这里String str2 = "strvalue"与String str2 = str1是完全相同的</span></span><br><span class="line">        System.out.println(<span class="string">"str1 == str2: "</span> +  (str1 == str2));</span><br><span class="line">        System.out.println(<span class="string">"str1.equals(str2): "</span> +  (str1.equals(str2)));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果通过new String()的方法来声明str3与str4，两者会指向不同的物理空间</span></span><br><span class="line">        String str3 = <span class="keyword">new</span> String(<span class="string">"strvalue"</span>);</span><br><span class="line">        String str4 = <span class="keyword">new</span> String(<span class="string">"strvalue"</span>);</span><br><span class="line">        System.out.println(<span class="string">"str3 == str4: "</span> +  (str3 == str4));</span><br><span class="line">        System.out.println(<span class="string">"str3.equals(str4): "</span> +  (str3.equals(str4)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">str1 == str2: <span class="keyword">true</span>           <span class="comment">//说明str1与str2指向一物理空间</span></span><br><span class="line">str1.equals(str2): <span class="keyword">true</span>		 <span class="comment">//说明str1与str2所指向的物理空间中存储的值相等</span></span><br><span class="line">str3 == str4: <span class="keyword">false</span>			 <span class="comment">//说明str3与str4不指向一物理空间</span></span><br><span class="line">str3.equals(str4): <span class="keyword">true</span>		 <span class="comment">//说明str3与str4所指向的物理空间中存储的值相等</span></span><br></pre></td></tr></table></figure>
+<h1 id="2-Java的根类Object的clone-方法"><a href="#2-Java的根类Object的clone-方法" class="headerlink" title="2. Java的根类Object的clone()方法"></a>2. Java的根类Object的clone()方法</h1><h2 id="2-1-为什么要有clone-方法？"><a href="#2-1-为什么要有clone-方法？" class="headerlink" title="2.1 为什么要有clone()方法？"></a>2.1 为什么要有clone()方法？</h2><p>首先说明clone方法是用来干什么的，我们都知道一般要创建一个新的对象时，往往是通过<code>new</code>关键字实现的。</p>
+<p>试想这样的一种情况，有一个类<code>Chicken</code>，在一开始时我们创建了一个<code>Chicken</code>对象<code>chicken1</code>，它有很多属性，如年龄、饥饿度、体重、性别等等一系列属性，这些属性会随着时间的变化而变化。</p>
+<p>现在存在着这样的一种需求，我想要把<code>chicken1</code>复制很多份，每一份都是一个新的对象，这些对象的所有属性都要和<code>chicken1</code>一样。</p>
+<p>那么这时候你可能会想，我可以先<code>new</code>出来很多新的<code>Chicken</code>对象，然后根据<code>chicken1</code>的属性对这些新的对象的属性进行一一赋值，但是你可能会发现，这个工作是很繁琐的，你要遍历<code>Chicken</code>里的每一个属性并对其一一赋值。</p>
+<p>那么如何优化呢，这时候就需要用到<code>clone()</code>方法了，直接用<code>Chicken chicken2 = (Chicken)chicken1.clone()</code>可以得到一个与<code>chicken1</code>一样的新对象<code>chicken2</code>。</p>
+<p>&lt;/br&gt;</p>
+<p>可能你还这样想过：</p>
+<p><strong><code>Chicken chicken2 = chicken1</code>能到一个新对象吗</strong></p>
+<p>看这样一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chicken</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name = <span class="string">"chickenname"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">        Chicken chicken1 = <span class="keyword">new</span> Chicken();</span><br><span class="line">        Chicken chicken2 = chicken1;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"chicken1指向的物理空间的地址："</span>+chicken1);</span><br><span class="line">        System.out.println(<span class="string">"chicken2指向的物理空间的地址："</span>+chicken2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chicken1指向的物理空间的地址：Chicken@16d3586</span><br><span class="line">chicken2指向的物理空间的地址：Chicken@16d3586</span><br></pre></td></tr></table></figure>
+<p>你会发现<code>Chicken chicken2 = chicken1</code>所得到的<code>chicken2</code>并不是一个新对象，它与<code>chicken1</code>指向同一个物理空间，更改<code>chicken1</code>时<code>chicken2</code>也会随之改变。</p>
+<p>因此，要想得到两个一模一样的对象，只能通过new然后逐一对属性赋值和clone()两种方法来试现。</p>
+<h2 id="2-2-clone方法的具体用法"><a href="#2-2-clone方法的具体用法" class="headerlink" title="2.2 clone方法的具体用法"></a>2.2 clone方法的具体用法</h2><p>要想使用clone()方法，必须在类中实现Cloneable接口，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chicken</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span>  Object <span class="title">clone</span><span class="params">()</span><span class="keyword">throws</span> CloneNotSupportedException</span>&#123;</span><br><span class="line">        Chicken newchicken = (Chicken) <span class="keyword">super</span>.clone();</span><br><span class="line">        <span class="keyword">return</span> newchicken;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>到此，我们已经可以初步的用一下clone()方法了，如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chicken</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span>  <span class="keyword">int</span> age = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span>  Object <span class="title">clone</span><span class="params">()</span><span class="keyword">throws</span> CloneNotSupportedException</span>&#123;</span><br><span class="line">        Chicken newchicken = (Chicken) <span class="keyword">super</span>.clone();</span><br><span class="line">        <span class="keyword">return</span> newchicken;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line"></span><br><span class="line">        Chicken chicken1 = <span class="keyword">new</span> Chicken();</span><br><span class="line">        chicken1.setAge(<span class="number">1</span>);</span><br><span class="line">        Chicken chicken2 = (Chicken) chicken1.clone();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"chicken1指向的物理空间的地址："</span>+chicken1);</span><br><span class="line">        System.out.println(<span class="string">"chicken2指向的物理空间的地址："</span>+chicken2);</span><br><span class="line">        System.out.println(<span class="string">"chicken1的age："</span>+chicken1.getAge());</span><br><span class="line">        System.out.println(<span class="string">"chicken2的age："</span>+chicken2.getAge());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chicken1指向的物理空间的地址：Chicken@16d3586</span><br><span class="line">chicken2指向的物理空间的地址：Chicken@154617c</span><br><span class="line">chicken1的age：1</span><br><span class="line">chicken2的age：1</span><br></pre></td></tr></table></figure>
+<p>可以发现，<code>chicken1</code>与<code>chicken2</code>指向的地址不同，即二者是两个对象，而且我们并没有对<code>chicken2</code>的<code>age</code>进行设置，但它的值却不是初始化的<code>0</code>而是与<code>chicken1</code>的<code>age</code>相同，为<code>1</code>。能够很好的说明，我们的clone()方法得到了实现。</p>
+<p>但是，要想深入理解clone()方法，现在还不算完。</p>
+<p>clone()方法分为<strong>浅克隆</strong>（浅拷贝）与<strong>深克隆</strong>（深拷贝）两种。</p>
+<h3 id="2-2-1-浅克隆"><a href="#2-2-1-浅克隆" class="headerlink" title="2.2.1 浅克隆"></a>2.2.1 浅克隆</h3><p>看下面的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chicken</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span>  <span class="keyword">int</span> age = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> String name = <span class="string">"chickenname"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span>  Object <span class="title">clone</span><span class="params">()</span><span class="keyword">throws</span> CloneNotSupportedException</span>&#123;</span><br><span class="line">        Chicken newchicken = (Chicken) <span class="keyword">super</span>.clone();</span><br><span class="line">        <span class="keyword">return</span> newchicken;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line"></span><br><span class="line">        Chicken chicken1 = <span class="keyword">new</span> Chicken();</span><br><span class="line">        Chicken chicken2 = (Chicken) chicken1.clone();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"chicken1 == chicken2 : "</span> + (chicken1 == chicken2) );</span><br><span class="line">        System.out.println(<span class="string">"chicken1.name.equals(chicken2.name) : "</span></span><br><span class="line">                +  (chicken1.getName().equals(chicken2.getName()));</span><br><span class="line">        System.out.println(<span class="string">"chicken1.name == chicken2.name : "</span></span><br><span class="line">                +  (chicken1.getName() == chicken2.getName()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chicken1 == chicken2 : <span class="keyword">false</span>					<span class="comment">//chicken1与chicken2两者地址不同</span></span><br><span class="line">chicken1.name.equals(chicken2.name) : <span class="keyword">true</span>		<span class="comment">//两者name的值相同</span></span><br><span class="line">chicken1.name == chicken2.name : <span class="keyword">true</span>			<span class="comment">//两者name的地址相同</span></span><br></pre></td></tr></table></figure>
+<p>通过上面的例子我们就可以看出来什么是<strong>浅克隆</strong>了，当执行<code>clone()</code>方法时，对于<code>Chicken</code>类里面的属性：</p>
+<p>●如果其属于八个基本数据类型中的一个，例如<code>Chicken</code>中的<code>age</code>属性，那么<code>chicken2</code>的<code>age</code>与<code>chicken1</code>的<code>age</code>对应不同的物理空间；</p>
+<p>●如果其属于引用数据类型(不属于八大基本数据类型的都是引用数据类型，如自定义的类、String、enum等)，例如<code>Chicken</code>中的<code>name</code>属性，那么<code>chicken2</code>的<code>name</code>与<code>chicken1</code>的<code>name</code>共用一个物理空间，并没有真正的把<code>name</code>拷贝过去，但是不影响我们的使用。</p>
+<h3 id="2-2-1-深克隆"><a href="#2-2-1-深克隆" class="headerlink" title="2.2.1 深克隆"></a>2.2.1 深克隆</h3><p>既然浅克隆不会为引用数据类型真正克隆一个物理空间，那么深克隆的概念就呼之欲出了，深克隆自然就是<strong>会为类中的引用数据类型的属性克隆一个新的物理空间</strong>。</p>
+<p>那么该如何实现深克隆呢？还记得我们在上面的1.2的代码中写的如何真正拷贝一个不同地址的String的方法吗？那就是new一个String。</p>
+<p>如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chicken</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name = <span class="string">"chickenname"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span>  Object <span class="title">clone</span><span class="params">()</span><span class="keyword">throws</span> CloneNotSupportedException</span>&#123;</span><br><span class="line">        Chicken newchicken = (Chicken) <span class="keyword">super</span>.clone();</span><br><span class="line">        newchicken.name=<span class="keyword">new</span> String(<span class="keyword">this</span>.name);</span><br><span class="line">        <span class="keyword">return</span> newchicken;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line"></span><br><span class="line">        Chicken chicken1 = <span class="keyword">new</span> Chicken();</span><br><span class="line">        Chicken chicken2 = (Chicken) chicken1.clone();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"chicken1 == chicken2 : "</span> + (chicken1 == chicken2) );</span><br><span class="line">        System.out.println(<span class="string">"chicken1.name.equals(chicken2.name) : "</span></span><br><span class="line">                +  (chicken1.name.equals(chicken2.name)));</span><br><span class="line">        System.out.println(<span class="string">"chicken1.name == chicken2.name : "</span></span><br><span class="line">                +  (chicken1.name == chicken2.name));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chicken1 == chicken2 : <span class="keyword">false</span>					<span class="comment">//chicken1与chicken2两者地址不同</span></span><br><span class="line">chicken1.name.equals(chicken2.name) : <span class="keyword">true</span>		<span class="comment">//两者name的值相同</span></span><br><span class="line">chicken1.name == chicken2.name : flase			<span class="comment">//两者name的地址不相同</span></span><br></pre></td></tr></table></figure>
+<p>这就是深克隆了，当然这里只提供了一个很简单的例子String，另外的还有如果属性有自定义的类的深克隆（假如Chicken中的属性里有一个我们自定义的Egg类），这时候就需要在Egg类中也提供clone()方法（而且要是深克隆）。更复杂的是如果Egg中的属性还有自定义的类，那么就要层层检查，保证每一层的类都要提供深克隆的clone()方法。这样是非常麻烦的，当然，我们只需要在理论上的理解即可，在实际应用中，我们几乎从不需要这样做。</p>
+<p><strong>End</strong></p>
+<p>PS：码了三个小时_(:з)∠)_，本来只想先码一点儿，但是一码就不想停下来。。。还有一大堆作业等着呢(ㄒoㄒ)</p>
+<p>&lt;/pr&gt;</p>
+<p>&lt;/pr&gt;</p>
+<p>参考链接：</p>
+<blockquote>
+<p> <a href="https://blog.csdn.net/Coding_Zhu/article/details/53096178" target="_blank" rel="noopener">JAVA基本数据类型与引用数据类型</a> </p>
+<p><a href="https://blog.csdn.net/qq_34490018/article/details/82110578" target="_blank" rel="noopener">深入理解Java中的String（大坑）</a></p>
+<p><a href="https://blog.csdn.net/zhangjg_blog/article/details/18369201" target="_blank" rel="noopener">详解Java中的clone方法 — 原型模式</a></p>
+</blockquote>
+
+    </div>
+	
+	<div>    
+	
+    	<div>    
+	        
+		<div style="text-align:center;color: #ccc;font-size:14px;">------------------------ The End ------------------------</div>    
+	
+</div>
+     
+	</div>
+    
+    
+    
+      
+
+        
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Monodrama
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.lvxuefei.top/blog/关于Java-String地址与值的理解和Java-Object的clone-方法/" title="关于Java String地址与值的理解和Java Object的clone()方法">https://www.lvxuefei.top/blog/关于Java-String地址与值的理解和Java-Object的clone-方法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/blog/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/blog/git命令速查表/" rel="next" title="git命令速查表">
+                  <i class="fa fa-chevron-left"></i> git命令速查表
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/blog/考研经验贴—21一战软件工程跨考北大软微集成电通/" rel="prev" title="考研经验贴—21一战软件工程跨考北大软微集成电通">
+                  考研经验贴—21一战软件工程跨考北大软微集成电通 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="comments"></div>
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-java的基本数据类型与引用数据类型"><span class="nav-number">1.</span> <span class="nav-text">1. java的基本数据类型与引用数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1简要说明"><span class="nav-number">1.1.</span> <span class="nav-text">1.1简要说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-用代码说明"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 用代码说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Java的根类Object的clone-方法"><span class="nav-number">2.</span> <span class="nav-text">2. Java的根类Object的clone()方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-为什么要有clone-方法？"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 为什么要有clone()方法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-clone方法的具体用法"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 clone方法的具体用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-浅克隆"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1 浅克隆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-深克隆"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.1 深克隆</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/blog/images/header.jpg"
+      alt="Monodrama">
+  <p class="site-author-name" itemprop="name">Monodrama</p>
+  <div class="site-description" itemprop="description">我的生活本身已成了我的娱乐</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/blog/categories/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/blog/tags/">
+          
+        
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/blog/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://github.com/LXF-DX3906" title="GitHub &rarr; https://github.com/LXF-DX3906" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="mailto:lvxuefeismile@qq.com" title="E-Mail &rarr; mailto:lvxuefeismile@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://stackoverflow.com/users/11585996/xuefei-lv" title="StackOverflow &rarr; https://stackoverflow.com/users/11585996/xuefei-lv" rel="noopener" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Monodrama</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">73k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">1:07</span>
+</div>
+
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/20/2019 12:49:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <!--<span class="post-meta-item-icon">-->
+        <!--<i class="fa fa-user"></i>-->
+      <!--</span>-->
+	  我的第
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+	  位朋友
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <!--<span class="post-meta-item-icon">-->
+        <!--<i class="fa fa-eye"></i>-->
+      <!--</span>-->
+	  历经
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+	  次回眸才与你相遇
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/blog/lib/pjax/pjax.min.js?v=0.2.8"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/blog/js/utils.js?v=7.4.1"></script><script src="/blog/js/motion.js?v=7.4.1"></script>
+<script src="/blog/js/schemes/muse.js?v=7.4.1"></script>
+
+<script src="/blog/js/next-boot.js?v=7.4.1"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  <script src="/blog/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+
+  
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'RtatGTqo4DBiApiKhxihzX6t-gzGzoHsz',
+    appKey: 'Sq97pmC4Wr9gMgWDV3wk7BjT',
+    placeholder: "你的言论将上交国家,请注意文明用言,否则可能被拒收或查水表 ヾﾉ≧∀≦)o 来呀！吐槽一番吧！在上方填入邮箱并使用邮箱在 https://cn.gravatar.com 网站上注册头像，即可在评论区显示头像。",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: true,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+    </div>
+
+</body>
+</html>
