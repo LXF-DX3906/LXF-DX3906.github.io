@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://www.lvxuefei.top/blog/"/>
-  <updated>2025-04-01T12:30:55.022Z</updated>
+  <updated>2026-05-14T12:59:44.126Z</updated>
   <id>https://www.lvxuefei.top/blog/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>业余无线电 A 类操作证题库与模拟练习</title>
+    <link href="https://www.lvxuefei.top/blog/amateur-radio-exam-a/"/>
+    <id>https://www.lvxuefei.top/blog/amateur-radio-exam-a/</id>
+    <published>2026-05-14T13:40:00.000Z</published>
+    <updated>2026-05-14T12:59:44.126Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在准备业余无线电 A 类的考试，为了方便自己随时随地刷题，我整理了一套包含知识点速记和错题本功能的模拟练习系统。</p><a id="more"></a><p>你可以直接点击下方按钮，进入专门的练习页面：</p><blockquote><p><strong>📻 业余无线电 A 类练习系统</strong></p><p>这是一个独立运行的单页应用（SPA）。包含了完整的官方题库、错题本、进度本地记忆以及全端适配。为了获得最好的排版和无干扰的交互体验，建议点击下方按钮在新标签页中沉浸式刷题。</p><div style="text-align: center; margin-top: 20px; margin-bottom: 10px;">  <a href="/blog/apps/radio_exam_app.html" target="_blank" class="btn">🚀 立即前往沉浸式刷题</a></div></blockquote><p>祝大家都能顺利拿到 A 类操作证，早日拿到自己的呼号！73！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在准备业余无线电 A 类的考试，为了方便自己随时随地刷题，我整理了一套包含知识点速记和错题本功能的模拟练习系统。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="学习笔记" scheme="https://www.lvxuefei.top/blog/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="无线电" scheme="https://www.lvxuefei.top/blog/tags/%E6%97%A0%E7%BA%BF%E7%94%B5/"/>
+    
+      <category term="考试" scheme="https://www.lvxuefei.top/blog/tags/%E8%80%83%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>均价本 App Tech Support</title>

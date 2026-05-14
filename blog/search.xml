@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>业余无线电 A 类操作证题库与模拟练习</title>
+    <url>/blog/amateur-radio-exam-a/</url>
+    <content><![CDATA[<p>最近在准备业余无线电 A 类的考试，为了方便自己随时随地刷题，我整理了一套包含知识点速记和错题本功能的模拟练习系统。</p><a id="more"></a>
+<p>你可以直接点击下方按钮，进入专门的练习页面：</p>
+<blockquote>
+<p><strong>📻 业余无线电 A 类练习系统</strong></p>
+<p>这是一个独立运行的单页应用（SPA）。包含了完整的官方题库、错题本、进度本地记忆以及全端适配。为了获得最好的排版和无干扰的交互体验，建议点击下方按钮在新标签页中沉浸式刷题。</p>
+<div style="text-align: center; margin-top: 20px; margin-bottom: 10px;">
+  <a href="/blog/apps/radio_exam_app.html" target="_blank" class="btn">🚀 立即前往沉浸式刷题</a>
+</div>
+
+</blockquote>
+<p>祝大家都能顺利拿到 A 类操作证，早日拿到自己的呼号！73！</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>无线电</tag>
+        <tag>考试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>均价本 App Tech Support</title>
     <url>/blog/%E5%9D%87%E4%BB%B7%E6%9C%AC%20App%20Tech%20Support/</url>
     <content><![CDATA[<p><img alt="AppIntroduction" data-src="/blog/均价本 App Tech Support/AppIntroduction.jpeg"></p><p>获取支持</p><p>请联系：lvxuefeismile@163.com</p><a id="more"></a>
